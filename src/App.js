@@ -10,14 +10,11 @@ import Profile from './Containers/Profile'
 
 class App extends React.Component {
 
-  componentDidMount(){
-    //use dispatch to execute fetch call
-  }
-
   render () {
     return (
       <div className="App">
         <h1>Welcome to Traverse</h1>
+        <Profile />
       </div>
     );
   }
