@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Payment extends Component {
+class rootReducer extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class Payment extends Component {
   }
 }
 
-export default Payment;
+export default rootReducer;
