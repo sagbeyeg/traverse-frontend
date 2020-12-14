@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 const defaultState = {
     // num: 0,
-    api: []
+    user: {}
 }
 
 // function numReducer(state = defaultState.num, action) {
@@ -15,7 +15,7 @@ const defaultState = {
 //     }
 // }
 
-function apiReducer(state = defaultState.api, action) {
+function userReducer(state = defaultState.user, action) {
     switch (action.type) {
         case "FETCH_USER":
             console.log("inside of API reducer", action)
@@ -33,7 +33,7 @@ function apiReducer(state = defaultState.api, action) {
 // {type: "INCREMENT_COUNTER"}
 const rootReducer = combineReducers({
     // num: numReducer,
-    api: apiReducer
+    user: userReducer
 })
 
 export default rootReducer

@@ -14,7 +14,7 @@ class Profile extends Component {
     return (
       <div>
         <h1>Profile</h1>
-        {/* <h1>{user.name}</h1> */}
+        <h1>{this.props.user.name}</h1>
       </div>
     );
   }
@@ -24,4 +24,8 @@ function mdp(dispatch){
   return {fetchUser: () => dispatch(getUserFromApi())}
 }
 
-export default connect(null, mdp)(Profile);
+function msp(state){
+  return {user: state.user}
+}
+
+export default connect(msp, mdp)(Profile);
