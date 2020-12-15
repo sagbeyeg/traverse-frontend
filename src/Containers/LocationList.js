@@ -18,7 +18,7 @@ class LocationList extends Component {
         <h1>Locations</h1>
         <br></br>
         <div>
-          <Card.Group centered >
+          <Card.Group centered className="location-cards">
             { locations.map((loc, idx) => <Location loc={loc} key={idx}/>)}
           </Card.Group>
         </div>

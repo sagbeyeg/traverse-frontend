@@ -12,3 +12,9 @@
 .card::after{
   opacity: 0.2;
 }
+
+.location-cards {
+    height: 85vh;
+    /* width: 50vw; */
+    overflow-y: scroll;
+}
