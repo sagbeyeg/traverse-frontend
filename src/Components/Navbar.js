@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
-  Menu, Image, Dropdown
+  Menu, Image, Dropdown, Button
 } from "semantic-ui-react";
 
 class Navbar extends Component {
@@ -10,9 +10,9 @@ class Navbar extends Component {
     return (
       <Menu fixed='top' inverted>
         <Image src='/traverse-logo-white.png' height="50px" />
-
-        <Dropdown text='Profile' pointing className='link item' as={NavLink} to="/profile" exact>
+        <Dropdown text='Profile' pointing className='link item' item>
           <Dropdown.Menu>
+            <Dropdown.Item as={NavLink} to="/profile" exact>My Profile</Dropdown.Item>
             <Dropdown.Item>Edit Profile</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item>My Reviews</Dropdown.Item>
