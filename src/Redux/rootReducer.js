@@ -33,6 +33,7 @@ function locationsReducer(state = defaultState.locations, action) {
 
 
 
+
 // {type: "INCREMENT_COUNTER"}
 const rootReducer = combineReducers({
   user: userReducer,

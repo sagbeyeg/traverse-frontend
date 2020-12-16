@@ -9,6 +9,8 @@ import Profile from './Containers/Profile'
 import LoginSignupEditUser from './Components/LoginSignupEditUser'
 import LocationList from './Containers/LocationList'
 import Navbar from './Components/Navbar'
+import ReviewList from './Containers/ReviewList';
+import TripList from './Containers/TripList';
 
 
 class App extends React.Component {
@@ -22,6 +24,8 @@ class App extends React.Component {
           <Route exact path="/profile" component={Profile}  />
           <Route exact path="/login" component={LoginSignupEditUser}  />
           <Route exact path="/locations" component={LocationList}  />
+          <Route exact path="/reviews" component={ReviewList}  />
+          <Route exact path="/trips" component={TripList}  />
         </div>
       </Router>
     );

@@ -1,4 +1,4 @@
-import { FETCH_USER, FETCH_LOCATIONS } from './actionTypes'
+import { FETCH_USER, FETCH_LOCATIONS} from './actionTypes'
 
 export function getUserFromApi(){
   console.log("Inside of action creator")

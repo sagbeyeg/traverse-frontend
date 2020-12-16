@@ -15,9 +15,9 @@ class Navbar extends Component {
             <Dropdown.Item as={NavLink} to="/profile" exact>My Profile</Dropdown.Item>
             <Dropdown.Item>Edit Profile</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>My Reviews</Dropdown.Item>
+            <Dropdown.Item as={NavLink} to="/reviews">My Reviews</Dropdown.Item>
             <Dropdown.Item>My Locations</Dropdown.Item>
-            <Dropdown.Item>My Trips</Dropdown.Item>
+            <Dropdown.Item as={NavLink} to="/trips">My Trips</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
