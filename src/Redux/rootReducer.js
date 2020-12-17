@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
 
 const defaultState = {
-    user: [],
-    locations: []
+  user: [],
+  locations: [],
+  currentLocation: []
 }
 
 function userReducer(state = defaultState.user, action) {
@@ -23,9 +24,19 @@ function locationsReducer(state = defaultState.locations, action) {
       case "FETCH_LOCATIONS":
           console.log("inside of API reducer", action)
           return action.payload
-      // case "ADD_DOG":
-      //     console.log("inside of API reducer", action)
-      //     return [...state, action.payload]
+      default:
+          return state
+  }
+}
+
+function currentLocationReducer(state = defaultState.currentLocation, action) {
+  switch (action.type) {
+      case "VIEW_LOCATION":
+          console.log("inside of API reducer", action)
+          return action.payload
+        case "ADD_REVIEW":
+          console.log("inside of API reducer", action)
+          return [...state.reviews, action.payload]
       default:
           return state
   }
@@ -37,7 +48,8 @@ function locationsReducer(state = defaultState.locations, action) {
 // {type: "INCREMENT_COUNTER"}
 const rootReducer = combineReducers({
   user: userReducer,
-  locations: locationsReducer
+  locations: locationsReducer,
+  currentLocation: currentLocationReducer
 })
 
 export default rootReducer

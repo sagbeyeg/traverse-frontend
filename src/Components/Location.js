@@ -1,33 +1,85 @@
 import React, { Component } from 'react';
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Grid, Segment, Image, Card, Divider, Icon, Button} from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import Review from './Review' 
+import CreateEditReview from './CreateEditReview'
+import { setCurrentLocation } from '../Redux/actions'
+ class Location extends Component {
+  state = {
+    form: false
+  }
 
-class Location extends Component {
+  componentDidMount(){
+    this.props.setLocation() 
+  }
+
+  clickHandler = () => {
+    // this.setState(prevState => ({form: !prevState.form }))
+    this.setState(prevState => ({form: !prevState.form })) 
+    this.props.setLocation()
+  }
   render() {
-    const {loc} = this.props
-
+    const { currentLocation } = this.props
+    console.log(this.props)
     return (
-      <Card >
-        <Image src='https://media3.s-nbcnews.com/i/newscms/2019_22/2877036/190530-florida-beach-mc-1334_1bc1c3ed6737c023681383d5d719f1be.JPG' wrapped ui={false} />
-        <Card.Content>
-          <Card.Header>{loc.name}</Card.Header>
-          <Card.Meta>
-            {loc.description}
-          </Card.Meta>
-          {/* <Card.Description>
-          </Card.Description> */}
-        </Card.Content>
-        <Card.Content extra>
-          <Button>
-            <Icon name='star outline' />
-            Add to Favorites
-          </Button>
-          {/* <Button>
-            View Details
-          </Button> */}
-        </Card.Content>
-      </Card>
+      <>
+        {currentLocation?
+          <>
+            <br></br>
+            <br></br>
+            <h1>
+              {currentLocation.name}<br></br>
+            <Button size='big' id={currentLocation.id}>
+              <Icon name='star' />
+              Favorite
+            </Button>
+            </h1>
+            <br></br>
+            <Grid columns={2} divided centered >
+              <Grid.Row stretched>
+                <Grid.Column width={6}>
+                  <Segment>
+                    <Image src='https://media1.popsugar-assets.com/files/thumbor/Gbp5ZjfDuCDPFzlmvIMlSppdH74/887x0:3623x2736/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/05/14/239/n/40126596/2da006e05cdb994e042fe8.45308274_/i/Best-Travel-Destinations-Southeast-Asia.jpg' fluid wrapped />
+                    <Divider />
+                    <h3>{currentLocation.description}</h3>
+                  </Segment>
+                </Grid.Column>
+                <Grid.Column width={7} >
+                  {this.state.form?
+                    <>
+                      <Button size='large' onClick={this.clickHandler}>Close Form</Button>
+                      <Segment className="location">
+                        <CreateEditReview clickHandler={this.clickHandler}/>
+                      </Segment>
+                    </>
+                  :
+                    <>
+                      <Button size='large' onClick={this.clickHandler}>Add a Review</Button>
+                      <Segment className="location">
+                        <Card.Group centered>
+                          {currentLocation.reviews? currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review review={review} key={idx}/> ) : null }
+                        </Card.Group>
+                      </Segment>
+                    </>
+                  }
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </>
+        :
+          <h1>Location Yayyyyyyy</h1>
+        }
+      </>
     );
   }
 }
 
-export default Location;
+function mdp(dispatch){
+  return {setLocation: () => dispatch(setCurrentLocation())}
+}
+
+function msp(state){
+  return {currentLocation: state.currentLocation}
+}
+
+export default connect(msp, mdp)(Location);

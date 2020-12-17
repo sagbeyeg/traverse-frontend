@@ -1,3 +1,9 @@
 export const FETCH_USER = "FETCH_USER"
 
 export const FETCH_LOCATIONS = "FETCH_LOCATIONS"
+
+export const VIEW_LOCATION = "VIEW_LOCATION"
+
+export const UPDATE_LOCATION = "UPDATE_LOCATION"
+
+export const ADD_REVIEW = "ADD_REVIEW"
