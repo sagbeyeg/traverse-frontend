@@ -66,7 +66,7 @@ import {NavLink} from 'react-router-dom'
                     <>
                       <Button size='large' onClick={this.toggleForm}>Close Form</Button>
                       <Segment className="location">
-                        <CreateEditReview clickHandler={this.clickHandler}/>
+                        <CreateEditReview clickHandler={this.clickHandler} id={currentLocation.id}/>
                       </Segment>
                     </>
                   :

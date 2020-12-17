@@ -4,23 +4,43 @@ import {Button} from 'semantic-ui-react'
 import { addReview, setCurrentLocation } from '../Redux/actions'
 
 class CreateEditReview extends Component {
-  
+  state = {
+    title: '',
+    rating: 1,
+    content: ''
+  }
+
+  changeHandler = (e) => {
+    
+    this.setState({
+      ...this.state.newJournal, [ e.target.name ]: e.target.value
+    }, () => console.log(this.state))
+  }
+
   submitHandler = (e) => {
-    e.preventDefault()
-    this.props.addReview()
+    e.preventDefault() 
+    let review = {
+      location_id: parseInt(this.props.id),
+      user_id: 1,
+      title: this.state.title,
+      rating: this.state.rating,
+      content: this.state.content
+    }
+
+    this.props.addReview(review)
     this.props.clickHandler()
   }
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
-        <div class="form-group">
+      <form onSubmit={this.submitHandler}> 
+        <div className="form-group">
           <label for="title">Title</label>
-          <input type="title" class="form-control" name="title" placeholder="Title"></input>
+          <input type="title" className="form-control" name="title" placeholder="Title" value={this.state.title} onChange={(e) => this.changeHandler(e)}></input>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="rating">Rating</label>
-          <select class="form-control" name="rating">
+          <select className="form-control" name="rating" value={this.state.rating} onChange={(e) => this.changeHandler(e)}>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -28,9 +48,9 @@ class CreateEditReview extends Component {
             <option>5</option>
           </select>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="content">Content</label>
-          <textarea class="form-control" name="content" rows="3"></textarea>
+          <textarea className="form-control" name="content" rows="3" value={this.state.content} onChange={(e) => this.changeHandler(e)}></textarea>
         </div>
         <Button>Submit Review</Button>
       </form>
@@ -39,7 +59,7 @@ class CreateEditReview extends Component {
 }
 
 function mdp(dispatch){
-  return {addReview: () => dispatch(addReview()), setLocation: () => dispatch(setCurrentLocation())}
+  return {addReview: (review) => dispatch(addReview(review)), setLocation: () => dispatch(setCurrentLocation())}
 } 
 
 export default connect(null, mdp)(CreateEditReview);

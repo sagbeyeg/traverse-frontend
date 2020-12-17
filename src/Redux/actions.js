@@ -41,8 +41,9 @@ export const setCurrentLocation = () => {
 //     return { type: INCREMENT_COUNTER }
 // }
 
-export function addReview(){
+export function addReview(review){
   console.log("Inside of action creator")
+  console.log("ReviewObj:", review)
   return function(dispatch){
     const configObj = {
       method: 'POST',
@@ -50,13 +51,7 @@ export function addReview(){
         'Content-Type': 'application/json',
         'Accepts': 'application/json'
       },
-      body: JSON.stringify({
-        user_id: 1,
-        location_id: 1,
-        title: "I Love Zonko's!",
-        rating: 5,
-        content: 'The best!'
-      })
+      body: JSON.stringify({review})
     }
 
     fetch('http://localhost:3002/api/v1/reviews', configObj)
