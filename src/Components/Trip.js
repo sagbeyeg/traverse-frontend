@@ -6,15 +6,19 @@ class Trip extends Component {
     const { trip } = this.props
     return (
       <div>
+      {trip?
         <Card >
           <Card.Content>
-          <Card.Header><h4>{trip.start_date.replace(/-/g, ".")} - {trip.end_date.replace(/-/g, ".")}</h4></Card.Header>
-          <Card.Meta>Beauxbatons</Card.Meta>
+          <Card.Header></Card.Header>
+          <Card.Meta>{trip.start_date.replace(/-/g, ".")} - {trip.end_date.replace(/-/g, ".")}</Card.Meta>
           <Card.Description>
             <p>{trip.note}</p>
           </Card.Description>
         </Card.Content>
       </Card>
+      :
+      null
+    }
       </div>
     );
   }

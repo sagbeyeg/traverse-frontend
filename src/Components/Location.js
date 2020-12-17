@@ -4,20 +4,36 @@ import { connect } from 'react-redux'
 import Review from './Review' 
 import CreateEditReview from './CreateEditReview'
 import { setCurrentLocation } from '../Redux/actions'
+import {NavLink} from 'react-router-dom'
  class Location extends Component {
   state = {
     form: false
   }
 
   componentDidMount(){
-    this.props.setLocation() 
+    this.props.setLocation()
+    this.setState({form: false}) 
+  }
+
+  toggleForm = () => {
+    this.setState(prevState => ({form: !prevState.form }))
   }
 
   clickHandler = () => {
-    // this.setState(prevState => ({form: !prevState.form }))
-    this.setState(prevState => ({form: !prevState.form })) 
+    this.setState({form: false}) 
+    alert('Adding Review...')
+    this.componentDidMount()
+  }
+
+  deleteHandler = (e) => {
+    console.log(e.target.id)
+    const configObj = {
+      method: 'DELETE'
+    }
+    fetch(`http://localhost:3002/api/v1/reviews/${e.target.id}`, configObj)
     this.props.setLocation()
   }
+
   render() {
     const { currentLocation } = this.props
     console.log(this.props)
@@ -33,6 +49,7 @@ import { setCurrentLocation } from '../Redux/actions'
               <Icon name='star' />
               Favorite
             </Button>
+            <Button size='big' as={NavLink} to="/booktrip">Book a Trip Here!</Button>
             </h1>
             <br></br>
             <Grid columns={2} divided centered >
@@ -47,17 +64,17 @@ import { setCurrentLocation } from '../Redux/actions'
                 <Grid.Column width={7} >
                   {this.state.form?
                     <>
-                      <Button size='large' onClick={this.clickHandler}>Close Form</Button>
+                      <Button size='large' onClick={this.toggleForm}>Close Form</Button>
                       <Segment className="location">
                         <CreateEditReview clickHandler={this.clickHandler}/>
                       </Segment>
                     </>
                   :
                     <>
-                      <Button size='large' onClick={this.clickHandler}>Add a Review</Button>
+                      <Button size='large' onClick={this.toggleForm}>Add a Review</Button>
                       <Segment className="location">
                         <Card.Group centered>
-                          {currentLocation.reviews? currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review review={review} key={idx}/> ) : null }
+                          {currentLocation.reviews? currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review deleteHandler={this.deleteHandler} review={review} key={idx}/> ) : null }
                         </Card.Group>
                       </Segment>
                     </>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link } from 'react-router-dom'
+import {Link, NavLink } from 'react-router-dom'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
 class LoginSignupEditUser extends Component {
@@ -21,7 +21,7 @@ class LoginSignupEditUser extends Component {
                 type='password'
               />
 
-              <Button color='orange' fluid size='large'>
+              <Button color='orange' fluid size='large' as={NavLink} to='/locations'>
                 Login
               </Button>
             </Segment>

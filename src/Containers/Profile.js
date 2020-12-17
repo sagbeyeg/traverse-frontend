@@ -8,6 +8,7 @@ import TripList from './TripList'
 import { Button, Grid, Segment, Image, Header, Icon, Card } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
 import { MdRateReview } from 'react-icons/md'
+// import
 
 class Profile extends Component {
 

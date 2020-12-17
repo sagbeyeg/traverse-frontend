@@ -12,6 +12,7 @@ import Navbar from './Components/Navbar'
 import ReviewList from './Containers/ReviewList';
 import TripList from './Containers/TripList';
 import Location from './Components/Location'
+import CreateTrip from './Components/CreateTrip' 
 
 
 class App extends React.Component {
@@ -28,6 +29,7 @@ class App extends React.Component {
           <Route exact path="/locations/1" component={Location}  />
           <Route exact path="/reviews" component={ReviewList}  />
           <Route exact path="/trips" component={TripList}  />
+          <Route exact path="/booktrip" component={CreateTrip} />
         </div>
       </Router>
     );
