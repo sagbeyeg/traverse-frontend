@@ -11,8 +11,9 @@ import {NavLink} from 'react-router-dom'
   }
 
   componentDidMount(){
-    this.props.setLocation()
     this.setState({form: false}) 
+    const id = parseInt(localStorage.getItem('locationId'))
+    this.props.setLocation(id)
   }
 
   toggleForm = () => {
@@ -85,7 +86,7 @@ import {NavLink} from 'react-router-dom'
             </Grid>
           </>
         :
-          <h1>Location Yayyyyyyy</h1>
+          null
         }
       </>
     );
@@ -93,7 +94,7 @@ import {NavLink} from 'react-router-dom'
 }
 
 function mdp(dispatch){
-  return {setLocation: () => dispatch(setCurrentLocation()), deleteReview: (id) => dispatch(deleteReview(id))}
+  return {setLocation: (id) => dispatch(setCurrentLocation(id)), deleteReview: (id) => dispatch(deleteReview(id))}
 }
 
 function msp(state){

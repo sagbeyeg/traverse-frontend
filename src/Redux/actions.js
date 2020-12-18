@@ -20,10 +20,10 @@ export function getLocationsFromApi(){
   }
 }
 
-export const setCurrentLocation = () => {
+export const setCurrentLocation = (id) => { 
   console.log("Inside of action creator")
   return function(dispatch){
-    fetch(`http://localhost:3002/api/v1/locations/1`)
+    fetch(`http://localhost:3002/api/v1/locations/${id}`)
       .then(resp => resp.json())
       //send data to the reducer
       .then(data => {dispatch({type: VIEW_LOCATION, payload: data})})

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Button } from 'semantic-ui-react' 
 import {connect} from 'react-redux'
-import { deleteReview, setCurrentLocation, updateReview } from '../Redux/actions'
+import { deleteReview, updateReview } from '../Redux/actions'
 class Review extends Component {
   state = {
     review: this.props.review,
@@ -78,6 +78,7 @@ class Review extends Component {
               <label for="content">Content</label>
               <textarea className="form-control" name="content" rows="3" value={this.state.content} onChange={(e) => this.changeHandler(e)}></textarea>
             </div>
+            <Button onClick={this.toggleEdit}>Cancel</Button>
             <Button>Submit Review</Button>
           </form>
         </Card>
@@ -107,7 +108,7 @@ class Review extends Component {
 }
 
 function mdp(dispatch){
-  return {deleteReview: (id) => dispatch(deleteReview(id)), setLocation: () => dispatch(setCurrentLocation()), updateReview: (review, reviewId) => dispatch(updateReview(review, reviewId))}
+  return {deleteReview: (id) => dispatch(deleteReview(id)), updateReview: (review, reviewId) => dispatch(updateReview(review, reviewId))}
 }
 
 export default connect(null, mdp)(Review);

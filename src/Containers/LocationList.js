@@ -16,9 +16,9 @@ class LocationList extends Component {
   }
 
   renderLocation(id){
-    // const location = loc => [this.props.locations.find(loc => loc.id == id)]
     console.log(id)
-    this.props.setLocation() 
+    localStorage.setItem('locationId', id);
+    this.props.setLocation(id) 
   }
 
   onChangeType = ({ target: { value } }) => {
@@ -58,7 +58,7 @@ class LocationList extends Component {
                       <Icon name='star outline' />
                       Favorite
                     </Button>
-                    <Button id={loc.id} as={NavLink} to='/locations/1' onClick={e => this.renderLocation(e.target.id)} >
+                    <Button id={loc.id} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id)} >
                       View
                     </Button>
                   </Card.Content>
@@ -79,7 +79,7 @@ class LocationList extends Component {
                     <Icon name='star outline' />
                     Favorite
                   </Button>
-                  <Button id={loc.id} as={NavLink} to='/locations/1' onClick={e => this.renderLocation(e.target.id)} >
+                  <Button id={loc.id} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id)} >
                     View
                   </Button>
                 </Card.Content>
@@ -94,7 +94,7 @@ class LocationList extends Component {
 }
 
 function mdp(dispatch){
-  return {fetchLocations: () => dispatch(getLocationsFromApi()), setLocation: () => dispatch(setCurrentLocation())}
+  return {fetchLocations: () => dispatch(getLocationsFromApi()), setLocation: (id) => dispatch(setCurrentLocation(id))}
 }
 
 function msp(state){
