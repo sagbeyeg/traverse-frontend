@@ -92,8 +92,8 @@ class Review extends Component {
             </Card.Description>
             {review.user_id == 1?
             <>
-            <Button id={review.id} onClick={this.deleteHandler}>Delete</Button>
             <Button id={review.id} onClick={this.toggleEdit}>Edit</Button>
+            <Button color='red' id={review.id} onClick={this.deleteHandler}>Delete</Button>
             </>
             :
             null
