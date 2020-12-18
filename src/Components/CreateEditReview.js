@@ -13,7 +13,7 @@ class CreateEditReview extends Component {
   changeHandler = (e) => {
     
     this.setState({
-      ...this.state.newJournal, [ e.target.name ]: e.target.value
+      ...this.state, [ e.target.name ]: e.target.value
     }, () => console.log(this.state))
   }
 

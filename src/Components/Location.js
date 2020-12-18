@@ -25,13 +25,18 @@ import {NavLink} from 'react-router-dom'
     this.componentDidMount()
   }
 
+  reviewUpdate = () => {
+    alert('Updating Review...')
+    this.componentDidMount()
+  }
+
   deleteHandler = (e) => {
     console.log(e.target.id)
     const configObj = {
       method: 'DELETE'
     }
     fetch(`http://localhost:3002/api/v1/reviews/${e.target.id}`, configObj)
-    this.props.setLocation()
+    .then(this.props.setLocation())
   }
 
   render() {
@@ -74,7 +79,7 @@ import {NavLink} from 'react-router-dom'
                       <Button size='large' onClick={this.toggleForm}>Add a Review</Button>
                       <Segment className="location">
                         <Card.Group centered>
-                          {currentLocation.reviews? currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review deleteHandler={this.deleteHandler} review={review} key={idx}/> ) : null }
+                          {currentLocation.reviews? currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review reviewUpdate={this.reviewUpdate} deleteHandler={this.deleteHandler} review={review} key={idx} id={currentLocation.id}/>  ) : null }
                         </Card.Group>
                       </Segment>
                     </>

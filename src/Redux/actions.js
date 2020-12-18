@@ -61,6 +61,26 @@ export function addReview(review){
   }
 }
 
+export function updateReview(review, id){
+  console.log("Inside of action creator")
+  console.log("ReviewObj:", review)
+  return function(dispatch){
+    const configObj = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify({review})
+    }
+
+    fetch(`http://localhost:3002/api/v1/reviews/${id}`, configObj)
+      .then(resp => resp.json())
+      //send data to the reducer
+      .then(reviewObj => {dispatch({type: UPDATE_REVIEW, payload: reviewObj})})
+  }
+}
+
 export function deleteReview(id){
   console.log("Inside of action creator")
   console.log(id)
