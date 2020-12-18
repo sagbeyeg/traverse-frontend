@@ -42,7 +42,7 @@ function currentLocationReducer(state = defaultState.currentLocation, action) {
         return state
       case "DELETE_REVIEW":
         console.log("inside of API reducer", action)
-        return [...state, ...state.currentLocation.reviews.filter(item => item !== action.payload)]
+        return state
         case "ADD_TRIP":
           console.log("inside of API reducer", action)
           return state

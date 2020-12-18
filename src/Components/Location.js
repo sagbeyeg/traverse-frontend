@@ -3,9 +3,9 @@ import { Grid, Segment, Image, Card, Divider, Icon, Button} from 'semantic-ui-re
 import { connect } from 'react-redux'
 import Review from './Review' 
 import CreateEditReview from './CreateEditReview'
-import { setCurrentLocation } from '../Redux/actions'
+import { setCurrentLocation, deleteReview } from '../Redux/actions'
 import {NavLink} from 'react-router-dom'
- class Location extends Component {
+ class Location extends Component { 
   state = {
     form: false
   }
@@ -30,13 +30,9 @@ import {NavLink} from 'react-router-dom'
     this.componentDidMount()
   }
 
-  deleteHandler = (e) => {
-    console.log(e.target.id)
-    const configObj = {
-      method: 'DELETE'
-    }
-    fetch(`http://localhost:3002/api/v1/reviews/${e.target.id}`, configObj)
-    .then(this.props.setLocation())
+  deleteHandler = () => {
+    // alert('Deleting Review...')
+    this.componentDidMount()
   }
 
   render() {
@@ -79,7 +75,7 @@ import {NavLink} from 'react-router-dom'
                       <Button size='large' onClick={this.toggleForm}>Add a Review</Button>
                       <Segment className="location">
                         <Card.Group centered>
-                          {currentLocation.reviews? currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review reviewUpdate={this.reviewUpdate} deleteHandler={this.deleteHandler} review={review} key={idx} id={currentLocation.id}/>  ) : null }
+                          {currentLocation.reviews? currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={currentLocation.id} delete={this.deleteHandler}/>  ) : null }
                         </Card.Group>
                       </Segment>
                     </>
@@ -97,7 +93,7 @@ import {NavLink} from 'react-router-dom'
 }
 
 function mdp(dispatch){
-  return {setLocation: () => dispatch(setCurrentLocation())}
+  return {setLocation: () => dispatch(setCurrentLocation()), deleteReview: (id) => dispatch(deleteReview(id))}
 }
 
 function msp(state){

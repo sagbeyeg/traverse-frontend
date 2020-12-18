@@ -90,10 +90,9 @@ export function deleteReview(id){
       method: 'DELETE'
     }
  
-    // fetch(`http://localhost:3002/api/v1/reviews/${id}`, configObj)
-    //   .then(resp => resp.json())
-    //   //send data to the reducer
-    //   .then(dispatch({type: DELETE_REVIEW, payload: id}))
+    fetch(`http://localhost:3002/api/v1/reviews/${id}`, configObj)
+      //send data to the reducer
+      .then(dispatch({type: DELETE_REVIEW, payload: id}))
   }
 }
 

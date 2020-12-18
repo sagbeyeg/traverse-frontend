@@ -44,6 +44,13 @@ class Review extends Component {
     this.props.reviewUpdate() 
   }
 
+  deleteHandler = (e) => {
+    console.log(e.target.id)
+    let id = parseInt(e.target.id)
+    this.props.delete()
+    this.props.deleteReview(id)
+  }
+
   render() {
     const { review } = this.props
     const star = "⭐"
@@ -85,7 +92,7 @@ class Review extends Component {
             </Card.Description>
             {review.user_id == 1?
             <>
-            <Button id={review.id} onClick={this.props.deleteHandler}>Delete</Button>
+            <Button id={review.id} onClick={this.deleteHandler}>Delete</Button>
             <Button id={review.id} onClick={this.toggleEdit}>Edit</Button>
             </>
             :
@@ -100,7 +107,7 @@ class Review extends Component {
 }
 
 function mdp(dispatch){
-  return {deleteReview: () => dispatch(deleteReview()), setLocation: () => dispatch(setCurrentLocation()), updateReview: (review, reviewId) => dispatch(updateReview(review, reviewId))}
+  return {deleteReview: (id) => dispatch(deleteReview(id)), setLocation: () => dispatch(setCurrentLocation()), updateReview: (review, reviewId) => dispatch(updateReview(review, reviewId))}
 }
 
 export default connect(null, mdp)(Review);
