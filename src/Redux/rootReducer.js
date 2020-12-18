@@ -29,22 +29,25 @@ function locationsReducer(state = defaultState.locations, action) {
   }
 }
 
-function currentLocationReducer(state = defaultState.currentLocation, action) {
-  switch (action.type) {
+function currentLocationReducer(state = defaultState.currentLocation, {type, payload}) {
+  switch (type) {
       case "VIEW_LOCATION":
-          console.log("inside of API reducer", action)
-          return action.payload
+          console.log("inside of API reducer", payload)
+          return payload
       case "ADD_REVIEW":
-        console.log("inside of API reducer", action)
-        return state
+        console.log("inside of API reducer", payload)
+        console.log("State", state)
+        // let reviewObj = payload
+        // debugger
+        return {...state, reviews: {...state.reviews, payload} } 
       case "UPDATE_REVIEW":
-        console.log("inside of API reducer", action) 
+        console.log("inside of API reducer", payload) 
         return state
       case "DELETE_REVIEW":
-        console.log("inside of API reducer", action)
+        console.log("inside of API reducer", payload)
         return state
         case "ADD_TRIP":
-          console.log("inside of API reducer", action)
+          console.log("inside of API reducer", payload)
           return state
       default:
           return state

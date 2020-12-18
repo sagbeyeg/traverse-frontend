@@ -23,12 +23,12 @@ import {NavLink} from 'react-router-dom'
   clickHandler = () => {
     this.setState({form: false}) 
     alert('Adding Review...')
-    this.componentDidMount()
+    // this.componentDidMount()
   }
 
   reviewUpdate = () => {
     alert('Updating Review...')
-    this.componentDidMount()
+    // this.componentDidMount()
   }
 
   deleteHandler = () => {
@@ -36,9 +36,17 @@ import {NavLink} from 'react-router-dom'
     this.componentDidMount()
   }
 
+  renderReviews = () => {
+    if (this.props.currentLocation.reviews) {
+      console.log(this.props.currentLocation.reviews)
+      return this.props.currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={this.props.currentLocation.id} delete={this.deleteHandler}/>)
+    } 
+  }
+
   render() {
     const { currentLocation } = this.props
     console.log(this.props)
+    console.log(currentLocation)
     return (
       <>
         {currentLocation?
@@ -74,9 +82,9 @@ import {NavLink} from 'react-router-dom'
                   :
                     <>
                       <Button size='large' onClick={this.toggleForm}>Add a Review</Button>
-                      <Segment className="location">
+                      <Segment className="location"> 
                         <Card.Group centered>
-                          {currentLocation.reviews? currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={currentLocation.id} delete={this.deleteHandler}/>  ) : null }
+                          {this.renderReviews()}
                         </Card.Group>
                       </Segment>
                     </>
@@ -98,6 +106,7 @@ function mdp(dispatch){
 }
 
 function msp(state){
+  console.log("State", state.currentLocation.reviews)
   return {currentLocation: state.currentLocation}
 }
 
