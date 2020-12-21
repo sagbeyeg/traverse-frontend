@@ -22,18 +22,16 @@ import {NavLink} from 'react-router-dom'
 
   clickHandler = () => {
     this.setState({form: false}) 
-    // alert('Adding Review...')
-    // this.componentDidMount()
   }
 
   reviewUpdate = () => {
-    alert('Updating Review...')
+    // alert('Updating Review...')
     // this.componentDidMount()
   }
 
   deleteHandler = () => {
     // alert('Deleting Review...')
-    this.componentDidMount()
+    // this.componentDidMount()
   }
 
   renderReviews = () => {

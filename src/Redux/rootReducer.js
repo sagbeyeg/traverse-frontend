@@ -34,7 +34,8 @@ function currentLocationReducer(state = defaultState.currentLocation, {type, pay
       case "VIEW_LOCATION":
           console.log("inside of API reducer", payload)
           return payload
-      case "ADD_REVIEW":
+      case "ADD_REVIEW"
+      :
         console.log("inside of API reducer", payload)
         console.log("State", state)
         let newObj = [...state.reviews, {...payload.review}]
@@ -42,12 +43,12 @@ function currentLocationReducer(state = defaultState.currentLocation, {type, pay
       case "UPDATE_REVIEW":
         console.log("inside of API reducer", payload)
         let copiedArray = [...state.reviews]
-        let idx = copiedArray.findIndex(rev => rev.id !== payload.id)
+        let idx = copiedArray.findIndex(rev => rev.id == payload.id)
         copiedArray[idx] = payload 
         return {...state, reviews: copiedArray } 
       case "DELETE_REVIEW":
         console.log("inside of API reducer", payload)
-        let filteredReviews = state.reviews.filter(rev => rev.id !== payload.id)
+        let filteredReviews = state.reviews.filter(rev => rev.id !== payload)
         console.log("Filtered Array:", filteredReviews)
         return {...state, reviews: filteredReviews }
         case "ADD_TRIP":
