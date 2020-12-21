@@ -22,7 +22,7 @@ import {NavLink} from 'react-router-dom'
 
   clickHandler = () => {
     this.setState({form: false}) 
-    alert('Adding Review...')
+    // alert('Adding Review...')
     // this.componentDidMount()
   }
 
@@ -39,8 +39,8 @@ import {NavLink} from 'react-router-dom'
   renderReviews = () => {
     if (this.props.currentLocation.reviews) {
       console.log(this.props.currentLocation.reviews)
-      return this.props.currentLocation.reviews.slice(0).reverse().map((review, idx) => <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={this.props.currentLocation.id} delete={this.deleteHandler}/>)
-    } 
+      return this.props.currentLocation.reviews.map((review, idx) => <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={this.props.currentLocation.id} delete={this.deleteHandler}/>)
+    }  
   }
 
   render() {
