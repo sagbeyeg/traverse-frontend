@@ -86,7 +86,7 @@ class Review extends Component {
         <Card >
           <Card.Content>
             <Card.Header><h2>{review.title}</h2></Card.Header>
-            <Card.Meta>Ministry of Magic</Card.Meta>
+            {/* <Card.Meta>Ministry of Magic</Card.Meta> */}
             {star.repeat(review.rating)}{empty_star.repeat(5 - review.rating)}
             <Card.Description>
               <h5>{review.content}</h5>

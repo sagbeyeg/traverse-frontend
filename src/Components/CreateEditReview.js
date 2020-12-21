@@ -20,8 +20,6 @@ class CreateEditReview extends Component {
   submitHandler = (e) => {
     e.preventDefault() 
     let review = {
-      location_id: parseInt(this.props.id),
-      user_id: 1,
       title: this.state.title,
       rating: this.state.rating,
       content: this.state.content
