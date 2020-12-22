@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { Input } from 'semantic-ui-react'
 
 class LocationFilter extends Component {
       
@@ -15,6 +16,8 @@ class LocationFilter extends Component {
           <option value="All">All</option>
           {this.createNameFilter()}
         </select>
+
+        {/* <Input placeholder="Search Locations..." onChange={}/> */}
         
       </div>
     );

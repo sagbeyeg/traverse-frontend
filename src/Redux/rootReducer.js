@@ -4,6 +4,7 @@ const defaultState = {
   user: [],
   locations: [],
   currentLocation: []
+  
 }
 
 function userReducer(state = defaultState.user, action) {

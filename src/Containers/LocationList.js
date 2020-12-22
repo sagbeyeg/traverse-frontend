@@ -32,6 +32,7 @@ class LocationList extends Component {
       'https://media.giphy.com/media/lXC2gmHf2ypUs/giphy.gif'
     ]
     const filteredArray = locations.filter(loc => loc.name.includes(this.state.filter))
+    const star = "⭐"
     return (
       <div>
         <br></br> 
@@ -41,52 +42,54 @@ class LocationList extends Component {
         </div>
         <br></br>
         <div>
-          <Card.Group centered className="location-cards">
             { this.state.filter === 'All'?
-            
-              locations.map((loc, idx) => 
-                <Card key={idx} id={loc.id} >
-                  <Image src='https://media.giphy.com/media/37QOWrwGOljUCbdDxd/giphy.gif' />
-                  <Card.Content>
-                    <Card.Header>{loc.name}</Card.Header>
-                    <Card.Meta>
-                      {loc.description}
-                    </Card.Meta>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <Button id={loc.id}>
-                      <Icon name='star outline' />
-                      Favorite
-                    </Button>
-                    <Button id={loc.id} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id)} >
-                      View
-                    </Button>
-                  </Card.Content>
-                </Card>
-              )
+              <Card.Group centered className="location-cards">
+                {locations.map((loc, idx) => 
+                  <Card key={idx} id={loc.id} >
+                    <Image src='https://media.giphy.com/media/37QOWrwGOljUCbdDxd/giphy.gif' />
+                    <Card.Content>
+                      <Card.Header>{loc.name}</Card.Header>
+                      { star.repeat(parseInt(loc.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / loc.reviews.length)) } 
+                      <Card.Meta>
+                        {loc.description}
+                      </Card.Meta>
+                    </Card.Content>
+                    <Card.Content extra>
+                      <Button id={loc.id}>
+                        <Icon name='star outline' />
+                        Favorite
+                      </Button>
+                      <Button id={loc.id} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id)} >
+                        View
+                      </Button>
+                    </Card.Content>
+                  </Card>
+                )}
+              </Card.Group>
             :
-              filteredArray.map((loc, idx) => 
-              <Card key={idx} id={loc.id} >
-                <Image src='https://media.giphy.com/media/37QOWrwGOljUCbdDxd/giphy.gif' />
-                <Card.Content>
-                  <Card.Header>{loc.name}</Card.Header>
-                  <Card.Meta>
-                    {loc.description}
-                  </Card.Meta>
-                </Card.Content>
-                <Card.Content extra>
-                  <Button id={loc.id}>
-                    <Icon name='star outline' />
-                    Favorite
-                  </Button>
-                  <Button id={loc.id} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id)} >
-                    View
-                  </Button>
-                </Card.Content>
-              </Card>
-              )
+              <Card.Group centered>
+                {filteredArray.map((loc, idx) => 
+                  <Card key={idx} id={loc.id} >
+                    <Image src='https://media.giphy.com/media/37QOWrwGOljUCbdDxd/giphy.gif' />
+                    <Card.Content>
+                      <Card.Header>{loc.name}</Card.Header>
+                      <Card.Meta>
+                        {loc.description}
+                      </Card.Meta>
+                    </Card.Content>
+                    <Card.Content extra>
+                      <Button id={loc.id}>
+                        <Icon name='star outline' />
+                        Favorite
+                      </Button>
+                      <Button id={loc.id} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id)} >
+                        View
+                      </Button>
+                    </Card.Content>
+                  </Card>
+                )}
+              </Card.Group>
             }
-          </Card.Group>
         </div>
       </div>
     );
