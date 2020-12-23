@@ -35,7 +35,7 @@ import {NavLink} from 'react-router-dom'
   }
 
   renderReviews = () => {
-    if (this.props.currentLocation.reviews) {
+    if (this.props.currentLocation.reviews) { 
       console.log(this.props.currentLocation.reviews)
       return this.props.currentLocation.reviews.map((review, idx) => <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={this.props.currentLocation.id} delete={this.deleteHandler}/>)
     }  
@@ -99,13 +99,13 @@ import {NavLink} from 'react-router-dom'
                   :
                   <>
                       <Button size='large' onClick={this.toggleForm}>Add a Review</Button>
-                      <Segment className="location"> 
+                      <Segment > 
                         <h4 class="center">
                           {currentLocation.reviews? star.repeat(parseInt(currentLocation.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / currentLocation.reviews.length)) : null} {currentLocation.reviews? emptyStar.repeat(5 - parseInt(currentLocation.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / currentLocation.reviews.length)) : null} || {currentLocation.reviews? currentLocation.reviews.length : null} reviews
                         </h4>
-                        
-                        <br></br>
-                        <Card.Group centered>
+                        <Divider /> 
+                        {/* <br></br> */}
+                        <Card.Group centered className="location">
                           {this.renderReviews()}
                         </Card.Group>
                       </Segment>

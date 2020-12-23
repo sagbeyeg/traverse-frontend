@@ -96,8 +96,8 @@ export function deleteReview(id){
   }
 }
 
-export function addTrip(){
-  console.log("Inside of action creator")
+export function addTrip(trip){
+  console.log("Inside of action creator", trip)
   return function(dispatch){
     const configObj = {
       method: 'POST',
@@ -105,13 +105,7 @@ export function addTrip(){
         'Content-Type': 'application/json',
         'Accepts': 'application/json'
       },
-      body: JSON.stringify({
-        user_id: 1,
-        location_id: 1,
-        start_date: "2020-12-17",
-        end_date: "2020-12-19",
-        note: "",
-      })
+      body: JSON.stringify({ trip })
     }
 
     fetch('http://localhost:3002/api/v1/trips', configObj)

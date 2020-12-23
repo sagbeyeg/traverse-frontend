@@ -15,9 +15,10 @@ class LocationList extends Component {
     this.props.fetchLocations()
   }
 
-  renderLocation(id){
+  renderLocation(id, name){
     console.log(id)
     localStorage.setItem('locationId', id);
+    localStorage.setItem('locationName', name);
     this.props.setLocation(id) 
   }
 
@@ -59,7 +60,7 @@ class LocationList extends Component {
                         <Icon name='star outline' />
                         Favorite
                       </Button>
-                      <Button id={loc.id} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id)} >
+                      <Button id={loc.id} name={loc.name} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id, e.target.name)} >
                         View
                       </Button>
                     </Card.Content>
@@ -82,7 +83,7 @@ class LocationList extends Component {
                         <Icon name='star outline' />
                         Favorite
                       </Button>
-                      <Button id={loc.id} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id)} >
+                      <Button id={loc.id} name={loc.name} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id, e.target.name)} >
                         View
                       </Button>
                     </Card.Content>

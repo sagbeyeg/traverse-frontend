@@ -36,11 +36,11 @@ class CreateEditReview extends Component {
       <form onSubmit={this.submitHandler}> 
         <div className="form-group">
           <label for="title">Title</label>
-          <input type="title" className="form-control" name="title" placeholder="Title" value={this.state.title} onChange={(e) => this.changeHandler(e)}></input>
+          <input required type="title" className="form-control" name="title" placeholder="Title" value={this.state.title} onChange={(e) => this.changeHandler(e)}></input>
         </div>
         <div className="form-group">
           <label for="rating">Rating</label>
-          <select className="form-control" name="rating" value={this.state.rating} onChange={(e) => this.changeHandler(e)}>
+          <select required className="form-control" name="rating" value={this.state.rating} onChange={(e) => this.changeHandler(e)}>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -50,7 +50,7 @@ class CreateEditReview extends Component {
         </div>
         <div className="form-group">
           <label for="content">Content</label>
-          <textarea className="form-control" name="content" rows="3" value={this.state.content} onChange={(e) => this.changeHandler(e)}></textarea>
+          <textarea required className="form-control" name="content" rows="3" value={this.state.content} onChange={(e) => this.changeHandler(e)}></textarea>
         </div>
         <Button>Submit Review</Button>
       </form>
