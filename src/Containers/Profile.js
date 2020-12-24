@@ -2,29 +2,39 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import { getUserFromApi, getReviewsFromApi } from '../Redux/actions'
 import Review from '../Components/Review'
-import ReviewList from './ReviewList'
 import Trip from '../Components/Trip'
-import TripList from './TripList'
 import { Button, Grid, Segment, Image, Header, Icon, Card } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
-import { MdRateReview } from 'react-icons/md'
+import { MdLocationOn } from 'react-icons/md'  
 // import
 
 class Profile extends Component {
+  state = {
+    show: 'reviews'
+  }
 
   componentDidMount(){
     //use dispatch to execute fetch call
     this.props.fetchUser()
   }
 
+  renderInfo = (e) => {
+    if (e.target.innerText == 'Reviews') {
+      this.setState ({ show: 'reviews'}, () => console.log("State changed to:", this.state.show))
+    } else if (e.target.innerText == 'Favorite Locations') {
+      this.setState ({ show: 'favLocations'}, () => console.log("State changed to:", this.state.show))
+    } else if (e.target.innerText == 'Trips') {
+      this.setState ({ show: 'trips'}, () => console.log("State changed to:", this.state.show))
+    }
+  }
+
   render() {
     const {user} = this.props
-    const {reviews} = this.props
     return (
       <div className="profile">
         <br></br>
         <h1>Profile</h1>
-        {/* <br></br> */}
+        <br></br>
         <Grid columns={2} divided centered >
           <Grid.Row stretched>
             <Grid.Column width='5'>
@@ -33,23 +43,45 @@ class Profile extends Component {
                 <h2>{user.name}</h2>
                 <em><h3>@{user.username}</h3></em>
                 <br></br>
+                <h4>
+                  {user.following? `${user.following.length} Following` : null} {user.followers? `${user.followers.length} Follower(s)` : null} 
+                </h4>
                 <br></br>
                 <h2> {user.bio} </h2>
                 <br></br>
-                <Icon name='calendar' /> Joined December 2020
+                <em>
+                  <h5>
+                    <MdLocationOn name="location arrow" size="1.5em"/> {user.state}, {user.country} <Icon  name='calendar' />Joined December 2020
+                  </h5>
+                </em>
               </Segment>
             </Grid.Column>
-            <Grid.Column className="profile-cards">
+            <Grid.Column >
               <Segment textAlign='center'>
+              <ul class="nav nav-tabs nav-fill">
+                <li class="nav-item" >
+                  <a class="nav-link active" href="#" onClick={this.renderInfo}><Icon name='clipboard list' color='blue' />Reviews</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onClick={this.renderInfo}><Icon color='blue' name='home' />Favorite Locations</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onClick={this.renderInfo}><Icon color='blue' name='travel' />Trips</a>
+                </li>
+              </ul>
+              {this.state.show == 'reviews'?
+              <div className="profile-cards"> 
                 <Header icon>
                   <Icon name='clipboard list' color='blue' />
                 </Header> 
                 <Card.Group centered>
-                  {user.reviews? user.reviews.reverse().slice(0, 2).map((review, idx) => <Review review={review} key={idx}/> ) : null }
+                  {user.reviews? user.reviews.slice(0, 6).map((review, idx) => <Review review={review} key={idx}/> ) : null }
                 </Card.Group> 
                 <br></br>
                 <Button color='grey' as={NavLink} to="/reviews">View More</Button>
-              </Segment>
+              </div>
+              : null}
+              {this.state.show == 'favLocations'? 
               <Segment placeholder>
                 <Header icon>
                   <Icon color='blue' name='home' />
@@ -57,15 +89,19 @@ class Profile extends Component {
                 </Header>
                 <Button color='grey' as={NavLink} to="/locations">Browse Locations</Button>
               </Segment>
-              <Segment textAlign='center'>
+              : null }
+              {this.state.show == 'trips'? 
+              <>
                   <Header icon>
                     <Icon color='blue' name='travel' />
                   </Header>
                 <Card.Group centered>
-                  {user.trips? user.trips.reverse().slice(0, 2).map((trip, idx) => <Trip trip={trip} key={idx}/> ) : null }
+                  {user.trips? user.trips.slice(0, 4).map((trip, idx) => <Trip trip={trip} key={idx}/> ) : null }
                 </Card.Group>
                 <br></br>
                 <Button color='grey' as={NavLink} to="/trips">View More</Button>
+              </>
+              : null }
               </Segment>
             </Grid.Column>
           </Grid.Row>

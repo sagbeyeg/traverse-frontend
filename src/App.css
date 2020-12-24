@@ -24,13 +24,19 @@
 }
 
 .profile-cards {
-  height: 85vh;
+  height: 75vh;
   /* width: 50vw; */
   overflow-y: scroll;
 }
 
 .location {
   height: 67vh;
+  /* width: 50vw; */
+  overflow-y: scroll;
+}
+
+.location-no-form {
+  height: 65vh;
   /* width: 50vw; */
   overflow-y: scroll;
 }

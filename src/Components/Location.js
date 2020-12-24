@@ -68,7 +68,6 @@ import {NavLink} from 'react-router-dom'
         {currentLocation?
           <>
             <br></br>
-            <br></br>
             <h1>
               {currentLocation.name}<br></br>
             <Button size='big' id={currentLocation.id}>
@@ -105,7 +104,7 @@ import {NavLink} from 'react-router-dom'
                         </h4>
                         <Divider /> 
                         {/* <br></br> */}
-                        <Card.Group centered className="location">
+                        <Card.Group centered className="location-no-form">
                           {this.renderReviews()}
                         </Card.Group>
                       </Segment>
