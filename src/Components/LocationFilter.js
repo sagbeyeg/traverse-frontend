@@ -10,7 +10,7 @@ class LocationFilter extends Component {
   render() {
     return (
       <div className="filter">
-        <h3>Looking For A Specific Location?</h3>
+        <h1>Looking For A Specific Destination?</h1>
      
         <select name="type" id="type" onChange={this.props.onChangeType}>
           <option value="All">All</option>

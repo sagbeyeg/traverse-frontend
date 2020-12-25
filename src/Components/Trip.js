@@ -9,10 +9,10 @@ class Trip extends Component {
       {trip?
         <Card >
           <Card.Content>
-          <Card.Header></Card.Header>
+          <Card.Header><em>Insert Destination Name Here</em></Card.Header>
           <Card.Meta>{trip.start_date.replace(/-/g, ".")} - {trip.end_date.replace(/-/g, ".")}</Card.Meta>
           <Card.Description>
-            <p>{trip.note}</p>
+            <p><strong>Note:</strong> {trip.note}</p>
           </Card.Description>
         </Card.Content>
       </Card>

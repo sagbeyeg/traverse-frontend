@@ -19,25 +19,21 @@
 
 .location-cards {
     height: 77vh;
-    /* width: 50vw; */
-    overflow-y: scroll;
+    overflow: scroll;
 }
 
 .profile-cards {
   height: 75vh;
-  /* width: 50vw; */
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 .location {
   height: 67vh;
-  /* width: 50vw; */
   overflow-y: scroll;
 }
 
 .location-no-form {
   height: 65vh;
-  /* width: 50vw; */
   overflow-y: scroll;
 }
 

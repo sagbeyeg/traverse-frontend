@@ -37,7 +37,7 @@ class LocationList extends Component {
     return (
       <div>
         <br></br> 
-        <h1>Locations</h1>
+        {/* <h1>Destinations</h1> */}
         <div className='filter-form'>
           <LocationFilter locations={this.props.locations} onChangeType={this.onChangeType} />
         </div>

@@ -16,13 +16,13 @@ class Navbar extends Component {
             <Dropdown.Item>Edit Profile</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item as={NavLink} to="/reviews">My Reviews</Dropdown.Item>
-            <Dropdown.Item>My Locations</Dropdown.Item>
+            <Dropdown.Item>My Destinations</Dropdown.Item>
             <Dropdown.Item as={NavLink} to="/trips">My Trips</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
         <Menu.Item as={NavLink} to="/locations" exact>
-          Locations
+          Destinations
         </Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item as={NavLink} to="/login" exact>

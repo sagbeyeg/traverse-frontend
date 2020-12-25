@@ -15,7 +15,7 @@ class ReviewList extends Component {
     return (
       <div>
         <h1>Reviews</h1>
-        {user.reviews? user.reviews.reverse().map((review, idx) => <Review review={review} key={idx}/> ) : null }
+        {user.reviews? user.reviews.map((review, idx) => <Review review={review} key={idx}/> ) : null }
       </div>
     );
   }
