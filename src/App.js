@@ -26,6 +26,8 @@ class App extends React.Component {
           <Route exact path="/locations" component={LocationList}  />
           <Route exact path="/location" component={Location}  />
           <Route exact path="/booktrip" component={CreateTrip} />
+          <Route exact path="/followers" component={CreateTrip} />
+          <Route exact path="/following" component={CreateTrip} />
         </div>
       </Router>
     );
