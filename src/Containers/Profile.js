@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import { getUserFromApi, getReviewsFromApi } from '../Redux/actions'
+import { getUserFromApi } from '../Redux/actions'
 import Review from '../Components/Review'
 import Trip from '../Components/Trip'
 import UserInfo from '../Components/UserInfo'
@@ -32,13 +32,10 @@ class Profile extends Component {
     return (
       <div className="profile">
         <br></br>
-        {/* <h1>Profile</h1> */}
         <br></br>
         <Grid columns={2} divided centered >
           <Grid.Row stretched>
-            <Grid.Column width='4'>
-              <UserInfo user={user} />
-            </Grid.Column>
+            <UserInfo />
             <Grid.Column >
               <Segment textAlign='center'>
               <ul class="nav nav-tabs nav-fill">
