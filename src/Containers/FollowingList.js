@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Segment, Header, Icon, Card } from 'semantic-ui-react'
 import UserInfo from '../Components/UserInfo'
+import UserCard from '../Components/UserCard'
 import {connect} from 'react-redux'
-import { NavLink } from 'react-router-dom';
+
 
 class FollowingList extends Component {
   render() {
@@ -33,7 +34,7 @@ class FollowingList extends Component {
                   {/* <Icon color='blue' name='travel' /> */} Following
                 </Header>
                 <Card.Group centered>
-                  {/* {user.trips? user.trips.map((trip, idx) => <Trip trip={trip} key={idx}/> ) : null } */}
+                  {user.following? user.following.map((user, idx) => <UserCard user={user} key={idx} id={user.id} /> ) : null }
                 </Card.Group>
               </div>
               </Segment>
