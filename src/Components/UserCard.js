@@ -10,7 +10,7 @@ class UserCard extends Component {
         <Card.Content>
           <Card.Header>{user.name}</Card.Header>
           <Card.Meta>
-            {user.username}
+            @{user.username}
           </Card.Meta>
         </Card.Content>
         <Card.Content extra>
