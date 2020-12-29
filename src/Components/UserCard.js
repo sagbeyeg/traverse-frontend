@@ -14,7 +14,7 @@ class UserCard extends Component {
           </Card.Meta>
         </Card.Content>
         <Card.Content extra>
-          {user.bio}
+          {user.bio.slice(0, 100)}...
           {/* <Button id={follower.id}>
             <Icon name='star outline' />
             Favorite
