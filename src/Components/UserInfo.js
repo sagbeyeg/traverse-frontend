@@ -21,7 +21,7 @@ class UserInfo extends Component {
           <em><h3>@{user.username}</h3></em>
           <br></br>
           <h4>
-            {user.following? `${user.following.length} Following` : null} {user.followers? `${user.followers.length} Follower(s)` : null} 
+            {user.following? <a href="/following" class="card-link">{user.following.length} Following</a> : null} {user.followers? <a href="/followers" class="card-link">{user.followers.length} Follower(s)</a> : null} 
           </h4>
           <br></br>
           <h2> {user.bio} </h2>
