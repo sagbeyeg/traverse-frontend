@@ -11,8 +11,7 @@ import LocationList from './Containers/LocationList'
 import Navbar from './Components/Navbar'
 import Location from './Components/Location'
 import CreateTrip from './Components/CreateTrip' 
-import FollowerList from './Containers/FollowerList'
-import FollowingList from './Containers/FollowingList'
+import RelationshipList from './Containers/RelationshipList'
 
 
 class App extends React.Component {
@@ -28,8 +27,7 @@ class App extends React.Component {
           <Route exact path="/locations" component={LocationList}  />
           <Route exact path="/location" component={Location}  />
           <Route exact path="/booktrip" component={CreateTrip} />
-          <Route exact path="/followers" component={FollowerList} />
-          <Route exact path="/following" component={FollowingList} />
+          <Route exact path="/relationships" component={RelationshipList} />
         </div>
       </Router>
     );
