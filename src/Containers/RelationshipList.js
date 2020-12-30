@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 class RelationshipList extends Component {
   state = {
-    relationship: "followers" 
+    relationship: localStorage.getItem("relationship")
   }
 
   clickHandler = (e) => {
@@ -42,9 +42,7 @@ class RelationshipList extends Component {
               </ul>
               <br></br>
               <div className="profile-cards">
-                <Header icon>
-                  {/* <Icon color='blue' name='travel' /> */} Followers
-                </Header>
+                <br></br>
                 <Card.Group centered>
                   {this.state.relationship == "followers" ? 
                     user.followers? user.followers.map((user, idx) => <UserCard user={user} key={idx} id={user.id} /> ) : null 

@@ -11,6 +11,16 @@ class UserInfo extends Component {
     this.props.fetchUser()
   }
 
+  setRelationship = (e) => {
+    if (e.target.name == "following") {
+      localStorage.setItem("relationship", "following")
+      console.log(localStorage.getItem("relationship"))
+    } else if (e.target.name == "followers") {
+      localStorage.setItem("relationship", "followers")
+      console.log(localStorage.getItem("relationship"))
+    }
+  }
+
   render() {
     const {user} = this.props
     return (
@@ -21,7 +31,7 @@ class UserInfo extends Component {
           <em><h3>@{user.username}</h3></em>
           <br></br>
           <h4>
-            {user.following? <a href="/relationships" class="card-link">{user.following.length} Following</a> : null} {user.followers? <a href="/relationships" class="card-link">{user.followers.length} Follower(s)</a> : null} 
+            {user.following? <a onClick={this.setRelationship} href="/relationships" name="following" class="card-link">{user.following.length} Following</a> : null} {user.followers? <a onClick={this.setRelationship} href="/relationships" name="followers" class="card-link">{user.followers.length} Follower(s)</a> : null} 
           </h4>
           <br></br>
           <h2> {user.bio} </h2>
