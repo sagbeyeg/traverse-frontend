@@ -14,13 +14,18 @@ class LoginSignupEditUser extends Component {
     }, () => console.log(this.state))
   }
 
+  submitHandler = (e) => {
+
+  }
+
   render() {
     return (
       <>
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: 800}} >
+        <Grid.Column style={{ maxWidth: 900}} >
             <div class="card">
-            <h1 class="blue">Log in to Traverse</h1> 
+            <h2>Log in to Traverse</h2> 
+            <br></br>
             <form>
               <div class="form-group">
                 <label for="location">Username</label>
