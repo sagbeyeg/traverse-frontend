@@ -10,6 +10,7 @@ import LoginSignupEditUser from './Components/LoginSignupEditUser'
 import LocationList from './Containers/LocationList'
 import Navbar from './Components/Navbar'
 import Location from './Components/Location'
+import Home from './Components/Home'
 import CreateTrip from './Components/CreateTrip' 
 import RelationshipList from './Containers/RelationshipList'
 
@@ -28,6 +29,7 @@ class App extends React.Component {
           <Route exact path="/location" component={Location}  />
           <Route exact path="/booktrip" component={CreateTrip} />
           <Route exact path="/relationships" component={RelationshipList} />
+          <Route exact path="/home" component={Home} />
         </div>
       </Router>
     );
