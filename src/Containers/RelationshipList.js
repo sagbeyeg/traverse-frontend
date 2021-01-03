@@ -31,10 +31,10 @@ class RelationshipList extends Component {
               <Segment textAlign='center'>
               <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item" >
-                  <a class={this.state.relationship == 'followers'? "nav-link active" : "nav-link"} href="#" onClick={this.clickHandler}><Icon name='clipboard list' color='blue' />Followers</a>
+                  <a class={this.state.relationship == 'followers'? "nav-link active" : "nav-link"} href="#" onClick={this.clickHandler}>Followers</a>
                 </li>
                 <li class="nav-item">
-                  <a class={this.state.relationship == 'following'? "nav-link active" : "nav-link"} href="#" onClick={this.clickHandler} ><Icon color='blue' name='home' />Following</a>
+                  <a class={this.state.relationship == 'following'? "nav-link active" : "nav-link"} href="#" onClick={this.clickHandler} >Following</a>
                 </li>
                 {/* <li class="nav-item">
                   <a class="nav-link" href="#" ><Icon color='blue' name='travel' />Suggestions</a>
