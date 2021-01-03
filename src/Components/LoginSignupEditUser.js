@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Link, NavLink } from 'react-router-dom'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Grid} from 'semantic-ui-react'
+import { connect } from 'react-redux';
+import { login } from '../Redux/actions'
 
 class LoginSignupEditUser extends Component {
   state = {
@@ -14,8 +16,10 @@ class LoginSignupEditUser extends Component {
     }, () => console.log(this.state))
   }
 
-  submitHandler = (e) => {
-
+  submitHandler = (e) => { 
+    e.preventDefault()
+    this.props.login(this.state.username)
+    // alert(`Logging In...`)
   }
 
   render() {
@@ -47,4 +51,12 @@ class LoginSignupEditUser extends Component {
   }
 }
 
-export default LoginSignupEditUser;
+function mdp(dispatch){
+  return {login: (username) => dispatch(login(username))} 
+} 
+
+// function msp(state){
+//   return {locations: state.locations}
+// }
+
+export default connect(null, mdp)(LoginSignupEditUser);

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
-import Profile from '../Containers/Profile';
 import {NavLink} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { addTrip } from '../Redux/actions'

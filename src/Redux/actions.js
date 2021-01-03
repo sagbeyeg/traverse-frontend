@@ -1,6 +1,16 @@
-import { FETCH_USER, FETCH_LOCATIONS, VIEW_LOCATION, ADD_REVIEW, DELETE_REVIEW, ADD_TRIP, UPDATE_REVIEW} from './actionTypes'
+import { LOGIN, FETCH_USER, FETCH_LOCATIONS, VIEW_LOCATION, ADD_REVIEW, DELETE_REVIEW, ADD_TRIP, UPDATE_REVIEW} from './actionTypes'
 
-export function getUserFromApi(){
+export const login = (username) => {
+  console.log("Inside of action creator")
+  return function(dispatch){
+    fetch(`http://localhost:3002/api/v1/by_username/${username}`)
+      .then(resp => resp.json())
+      //send data to the reducer
+      .then(data => {dispatch({type: LOGIN, payload: data})})
+  }
+}
+
+export const getUserFromApi = () => {
   console.log("Inside of action creator")
   return function(dispatch){
     fetch('http://localhost:3002/api/v1/users/1')
@@ -10,7 +20,7 @@ export function getUserFromApi(){
   }
 }
 
-export function getLocationsFromApi(){
+export const getLocationsFromApi = () => {
   console.log("Inside of action creator")
   return function(dispatch){
     fetch('http://localhost:3002/api/v1/locations')
