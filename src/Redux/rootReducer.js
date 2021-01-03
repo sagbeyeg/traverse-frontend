@@ -12,6 +12,7 @@ function currentUserReducer(state = defaultState.currentUser, action) {
   switch (action.type) {
     case "LOGIN":
       console.log("inside of current user reducer")
+      console.log("payload:", action.payload) 
       return action.payload
     default:
       return state
