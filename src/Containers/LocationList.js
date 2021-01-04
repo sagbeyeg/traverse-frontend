@@ -74,6 +74,7 @@ class LocationList extends Component {
                     <Image src='https://media.giphy.com/media/37QOWrwGOljUCbdDxd/giphy.gif' />
                     <Card.Content>
                       <Card.Header>{loc.name}</Card.Header>
+                      { star.repeat(parseInt(loc.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / loc.reviews.length)) }
                       <Card.Meta>
                         {loc.description}
                       </Card.Meta>
