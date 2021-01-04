@@ -8,10 +8,10 @@ class Home extends Component {
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='top'>
         <Grid.Column style={{ maxWidth: 1500}} >
           <div class="home-card"> 
-            <h1 style={{ fontSize: '80px' }}>Welcome to Traverse!</h1>
-            <h1 style={{ fontSize: '60px' }}>The Most Trusted in Travel</h1>
+            <h1 style={{ fontSize: '100px' }}>Welcome to Traverse!</h1>
+            <h1 style={{ fontSize: '80px' }}><em>The Most Trusted in Travel</em></h1>
           </div>
-          <Card.Group itemsPerRow={3.5} centered style={{ fontSize: '150%' }}>
+          <Card.Group itemsPerRow={3} centered style={{ fontSize: '200%' }}>
             <Card>
               <Card.Content>
                 <Card.Header>"I Wish I Worked There"</Card.Header>
@@ -31,6 +31,7 @@ class Home extends Component {
               </Card.Content>
             </Card>
           </Card.Group>
+          <br></br>
           <br></br>
           <Button size='huge' color='grey' as={NavLink} to="/locations">Browse Destinations</Button>
         </Grid.Column>

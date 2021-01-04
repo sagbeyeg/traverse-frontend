@@ -24,6 +24,7 @@ class App extends React.Component {
           <Navbar/>
           <h1>Welcome to Traverse</h1>
           <Route exact path="/profile" component={Profile}  />
+          <Route exact path="/user" component={Profile}  />
           <Route exact path="/login" component={LoginSignupEditUser}  />
           <Route exact path="/locations" component={LocationList}  />
           <Route exact path="/location" component={Location}  />

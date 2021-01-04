@@ -15,10 +15,10 @@ export const loggedIn = (state) => {
   return { type: LOGGED_IN, payload: state }
 }
 
-export const getUserFromApi = () => {
+export const getUserFromApi = (user) => {
   console.log("Inside of action creator")
   return function(dispatch){
-    fetch('http://localhost:3002/api/v1/users/1')
+    fetch(`http://localhost:3002/api/v1/users/${user}`)
       .then(resp => resp.json())
       //send data to the reducer
       .then(data => {dispatch({type: FETCH_USER, payload: data})})

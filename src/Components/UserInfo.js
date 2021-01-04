@@ -8,7 +8,7 @@ class UserInfo extends Component {
 
   componentDidMount(){
     //use dispatch to execute fetch call
-    this.props.fetchUser()
+    this.props.fetchUser(1)
   }
 
   setRelationship = (e) => {
@@ -47,7 +47,7 @@ class UserInfo extends Component {
   }
 }
 function mdp(dispatch){
-  return {fetchUser: () => dispatch(getUserFromApi())}
+  return {fetchUser: (user) => dispatch(getUserFromApi(user))}
 }
 
 function msp(state){ 

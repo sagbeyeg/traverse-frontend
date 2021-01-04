@@ -14,7 +14,7 @@ class Profile extends Component {
 
   componentDidMount(){
     //use dispatch to execute fetch call
-    this.props.fetchUser()
+    this.props.fetchUser(1)
   }
 
   renderInfo = (e) => {
@@ -89,7 +89,7 @@ class Profile extends Component {
 }
 
 function mdp(dispatch){
-  return {fetchUser: () => dispatch(getUserFromApi())}
+  return {fetchUser: (user) => dispatch(getUserFromApi(user))}
 }
 
 function msp(state){ 
