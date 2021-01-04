@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 
 const defaultState = {
   currentUser: [],
+  loggedIn: true,
   user: [],
   locations: [],
   currentLocation: []

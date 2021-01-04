@@ -15,10 +15,7 @@ class LocationFilter extends Component {
         <select name="type" id="type" onChange={this.props.onChangeType}>
           <option value="All">All</option>
           {this.createNameFilter()}
-        </select>
-
-        {/* <Input placeholder="Search Locations..." onChange={}/> */}
-        
+        </select>     
       </div>
     );
   }

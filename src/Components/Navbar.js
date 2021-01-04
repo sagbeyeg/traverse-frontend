@@ -9,7 +9,7 @@ class Navbar extends Component {
     // console.log(this.props.loggedIn)
     return (
       <Menu fixed='top' inverted>
-        <Image src='/traverse-logo-white.png' size="small" href="/home"/>
+        <Image src='/traverse-logo-white.png' size="small" href="/"/>
         <Dropdown text='Profile' pointing className='link item' item>
           <Dropdown.Menu>
             <Dropdown.Item as={NavLink} to="/profile" exact>My Profile</Dropdown.Item>
@@ -21,9 +21,9 @@ class Navbar extends Component {
           Destinations
         </Menu.Item>
         <Menu.Menu position='right'>
-          <Menu.Item as={NavLink} to="/login" exact>
+          {/* <Menu.Item as={NavLink} to="/login" exact>
             Login
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item as={NavLink} to="/logout" onClick={this.props.handleLogout}>
             Logout
           </Menu.Item>

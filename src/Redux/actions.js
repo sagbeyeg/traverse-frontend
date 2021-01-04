@@ -1,4 +1,4 @@
-import { LOGIN, FETCH_USER, FETCH_LOCATIONS, VIEW_LOCATION, ADD_REVIEW, DELETE_REVIEW, ADD_TRIP, UPDATE_REVIEW} from './actionTypes'
+import { LOGIN, LOGGED_IN, FETCH_USER, FETCH_LOCATIONS, VIEW_LOCATION, ADD_REVIEW, DELETE_REVIEW, ADD_TRIP, UPDATE_REVIEW} from './actionTypes'
 
 export const login = (username) => {
   console.log("Inside of action creator")
@@ -8,6 +8,11 @@ export const login = (username) => {
       //send data to the reducer
       .then(data => {dispatch({type: LOGIN, payload: data})})
   }
+}
+
+export const loggedIn = (state) => {
+  console.log("Inside of action creator")
+  return { type: LOGGED_IN, payload: state }
 }
 
 export const getUserFromApi = () => {

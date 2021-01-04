@@ -66,7 +66,7 @@ class Profile extends Component {
                   <Icon color='blue' name='home' />
                   No locations have been added to favorites.
                 </Header>
-                <Button color='grey' as={NavLink} to="/locations">Browse Locations</Button>
+                <Button color='grey' as={NavLink} to="/locations">Browse Destinations</Button>
               </Segment>
               : null }
               {this.state.show == 'trips'? 
