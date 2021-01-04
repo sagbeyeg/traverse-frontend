@@ -24,16 +24,6 @@ import {NavLink} from 'react-router-dom'
     this.setState({form: false}) 
   }
 
-  reviewUpdate = () => {
-    // alert('Updating Review...')
-    // this.componentDidMount()
-  }
-
-  deleteHandler = () => {
-    // alert('Deleting Review...')
-    // this.componentDidMount()
-  }
-
   renderReviews = () => {
     if (this.props.currentLocation.reviews) { 
       console.log(this.props.currentLocation.reviews)
@@ -41,24 +31,10 @@ import {NavLink} from 'react-router-dom'
     }  
   }
 
-  // locationRating = () => {
-  //   if (this.props.currentLocation.reviews) {
-      
-  //     return star.repeat(review.rating) emptyStar.repeat(5 - review.rating)
-  //     star.repeat(locRating) 
-  //     // && emptyStar.repeat(5 - locRating)
-  //     // 5514124541111555
-  //     // currentLocation.reviews? currentLocation.reviews.rating.reduce((a,b) => a + b, 0) / currentLocation.reviews.length
-  //   }
-  // }
-
   render() {
     const { currentLocation } = this.props
     const star = "⭐"
     const emptyStar = "☆"
-    // const revRatings = this.props.currentLocation.reviews.map(rev => rev.rating)
-    // const locRating = parseInt(revRatings.reduce((a,b) => a + b, 0) / revRatings.length)
-    // parseInt(this.props.currentLocation.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / revRatings.length)  
 
     console.log(this.props)
     console.log(currentLocation)

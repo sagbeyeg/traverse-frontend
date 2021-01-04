@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import {Card, Icon} from 'semantic-ui-react'
+import {Card} from 'semantic-ui-react'
+import {NavLink} from 'react-router-dom'
 
 class Trip extends Component {
+  clickHandler = (e) => {
+    console.log("clicked")
+    localStorage.setItem('locationId', this.props.trip.location.id);
+  }
   render() {
     const { trip } = this.props
     return (
@@ -9,10 +14,13 @@ class Trip extends Component {
       {trip?
         <Card >
           <Card.Content>
-          <Card.Header><em>{trip.location.name}</em></Card.Header>
+          <Card.Header onClick={this.clickHandler} href="location" style={{cursor: 'pointer'}}>
+            {/* <div id={trip.location.id} name={trip.location.name} onClick={this.clickHandler} href="location" style={{cursor: 'pointer'}}> */}
+              <em>{trip.location.name}</em>
+            {/* </div> */}
+          </Card.Header>
           <Card.Meta>{trip.start_date.replace(/-/g, ".")} - {trip.end_date.replace(/-/g, ".")}</Card.Meta>
           <Card.Description>
-            
             <p><strong>Note:</strong> {trip.note == ""? "N/A" : trip.note}</p>
           </Card.Description>
         </Card.Content>

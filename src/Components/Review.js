@@ -50,6 +50,16 @@ class Review extends Component {
     this.props.deleteReview(id)
   }
 
+  clickHandler = () => {
+    localStorage.setItem('locationId', this.props.review.location.id);
+  }
+
+  userClickHandler = (e) => {
+    // e.preventDefault() 
+    localStorage.setItem("userId", this.props.review.user.id)
+    // console.log(localStorage("userId"))
+  }
+
   render() {
     const { review } = this.props
     const star = "⭐"
@@ -88,7 +98,7 @@ class Review extends Component {
             {/* <Card.Meta>Ministry of Magic</Card.Meta> */}
             {star.repeat(review.rating)}{empty_star.repeat(5 - review.rating)}
             <Card.Meta>
-              {review.user.name} for <strong>{review.location.name}</strong> 
+              <a href="user" onClick={this.userClickHandler}style={{cursor: 'pointer'}}>{review.user.name}</a> for <a href="location" onClick={this.clickHandler}style={{cursor: 'pointer'}}><strong>{review.location.name}</strong></a> 
 
             </Card.Meta>
             <Card.Description>

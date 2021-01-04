@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import { getLocationsFromApi, setCurrentLocation } from '../Redux/actions'
+import { getLocationsFromApi } from '../Redux/actions'
 import Location from '../Components/Location'
 import {Card, Image, Button, Icon} from 'semantic-ui-react' 
 import {NavLink} from 'react-router-dom'
@@ -18,8 +18,6 @@ class LocationList extends Component {
   renderLocation(id, name){
     console.log(id)
     localStorage.setItem('locationId', id);
-    localStorage.setItem('locationName', name);
-    this.props.setLocation(id) 
   }
 
   onChangeType = ({ target: { value } }) => {
@@ -99,7 +97,7 @@ class LocationList extends Component {
 }
 
 function mdp(dispatch){
-  return {fetchLocations: () => dispatch(getLocationsFromApi()), setLocation: (id) => dispatch(setCurrentLocation(id))}
+  return {fetchLocations: () => dispatch(getLocationsFromApi())}
 }
 
 function msp(state){

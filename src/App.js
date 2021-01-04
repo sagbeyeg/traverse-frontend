@@ -14,6 +14,7 @@ import Home from './Components/Home'
 import CreateTrip from './Components/CreateTrip' 
 import RelationshipList from './Containers/RelationshipList'
 import ViewUser from './Containers/ViewUser';
+import ActivityList from './Containers/ActivityList'
 
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
           <Route exact path="/booktrip" component={CreateTrip} />
           <Route exact path="/relationships" component={RelationshipList} />
           <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={ActivityList} />
         </div>
       </Router>
     );

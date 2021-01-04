@@ -10,6 +10,9 @@ class Navbar extends Component {
     return (
       <Menu fixed='top' inverted>
         <Image src='/traverse-logo-white.png' size="small" href="/"/>
+        <Menu.Item as={NavLink} to="/home" exact>
+          Home
+        </Menu.Item>
         <Dropdown text='Profile' pointing className='link item' item>
           <Dropdown.Menu>
             <Dropdown.Item as={NavLink} to="/profile" exact>My Profile</Dropdown.Item>
