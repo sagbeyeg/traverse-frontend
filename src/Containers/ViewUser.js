@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import { getUserFromApi } from '../Redux/actions'
+import { getUserFromApi, viewUserFromApi } from '../Redux/actions'
 import Review from '../Components/Review'
 import Trip from '../Components/Trip'
 import UserInfo from '../Components/UserInfo'
@@ -89,11 +89,12 @@ class ViewUser extends Component {
 }
 
 function mdp(dispatch){
-  return {fetchUser: (user) => dispatch(getUserFromApi(user))}
+  return {fetchUser: (user) => dispatch(getUserFromApi(user)), viewUser: (user) => dispatch(viewUserFromApi(user))}
 }
 
 function msp(state){ 
   return {user: state.user}
+  return {currentUser: state.currentUser}
 }
 
 export default connect(msp, mdp)(ViewUser);
