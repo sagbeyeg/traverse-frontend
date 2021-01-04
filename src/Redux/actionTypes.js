@@ -2,6 +2,8 @@ export const LOGIN = "LOGIN"
 
 export const LOGGED_IN = "LOGGED_IN"
 
+export const VIEW_USER = "FETCH_USER"
+
 export const FETCH_USER = "FETCH_USER"
 
 export const FETCH_LOCATIONS = "FETCH_LOCATIONS"

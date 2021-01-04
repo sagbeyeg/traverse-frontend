@@ -8,7 +8,7 @@ class UserInfo extends Component {
 
   componentDidMount(){
     //use dispatch to execute fetch call
-    this.props.fetchUser(1)
+    this.props.fetchUser(parseInt(localStorage.getItem("userId")))
   }
 
   setRelationship = (e) => {

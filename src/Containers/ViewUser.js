@@ -7,15 +7,14 @@ import UserInfo from '../Components/UserInfo'
 import { Button, Grid, Segment, Header, Icon, Card } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
 
-class Profile extends Component {
+class ViewUser extends Component {
   state = {
     show: 'reviews'
   }
 
   componentDidMount(){
     //use dispatch to execute fetch call
-    localStorage.setItem("userId", 1)
-    this.props.fetchUser(localStorage.getItem("userId"))
+    this.props.fetchUser(parseInt(localStorage.getItem("userId")))
   }
 
   renderInfo = (e) => {
@@ -97,4 +96,4 @@ function msp(state){
   return {user: state.user}
 }
 
-export default connect(msp, mdp)(Profile);
+export default connect(msp, mdp)(ViewUser);

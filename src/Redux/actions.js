@@ -1,4 +1,4 @@
-import { LOGIN, LOGGED_IN, FETCH_USER, FETCH_LOCATIONS, VIEW_LOCATION, ADD_REVIEW, DELETE_REVIEW, ADD_TRIP, UPDATE_REVIEW} from './actionTypes'
+import { LOGIN, LOGGED_IN, VIEW_USER, FETCH_USER, FETCH_LOCATIONS, VIEW_LOCATION, ADD_REVIEW, DELETE_REVIEW, ADD_TRIP, UPDATE_REVIEW} from './actionTypes'
 
 export const login = (username) => {
   console.log("Inside of action creator")
@@ -13,6 +13,16 @@ export const login = (username) => {
 export const loggedIn = (state) => {
   console.log("Inside of action creator")
   return { type: LOGGED_IN, payload: state }
+}
+
+export const viewUserFromApi = (user) => {
+  console.log("Inside of action creator")
+  return function(dispatch){
+    fetch(`http://localhost:3002/api/v1/users/${user}`)
+      .then(resp => resp.json())
+      //send data to the reducer
+      .then(data => {dispatch({type: VIEW_USER, payload: data})})
+  }
 }
 
 export const getUserFromApi = (user) => {
