@@ -41,7 +41,6 @@ class Review extends Component {
     let reviewId = this.props.review.id
     this.props.updateReview(review, reviewId)
     this.setState({edit: false})
-    this.props.reviewUpdate() 
   }
 
   deleteHandler = (e) => {
