@@ -40,13 +40,13 @@ class Profile extends Component {
               <Segment textAlign='center'>
               <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item" >
-                  <a class={this.state.show == 'reviews'? "nav-link active" : "nav-link"} href="#" onClick={this.renderInfo}><Icon name='clipboard list' color='blue' />Reviews</a>
+                  <a class={this.state.show == 'reviews'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><Icon name='clipboard list' color='blue' />Reviews</a>
                 </li>
                 <li class="nav-item">
-                  <a class={this.state.show == 'favLocations'? "nav-link active" : "nav-link"} href="#" onClick={this.renderInfo}><Icon color='blue' name='home' />Favorite Locations</a>
+                  <a class={this.state.show == 'favLocations'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><Icon color='blue' name='home' />Favorite Locations</a>
                 </li>
                 <li class="nav-item">
-                  <a class={this.state.show == 'trips'? "nav-link active" : "nav-link"} href="#" onClick={this.renderInfo}><Icon color='blue' name='travel' />Trips</a>
+                  <a class={this.state.show == 'trips'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><Icon color='blue' name='travel' />Trips</a>
                 </li>
               </ul>
               <br></br>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Segment, Header, Icon, Card } from 'semantic-ui-react'
 import UserInfo from '../Components/UserInfo'
-import UserCard from '../Components/UserCard'
+import RelationshipCard from '../Components/RelationshipCard'
 import {connect} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 
@@ -28,13 +28,16 @@ class RelationshipList extends Component {
           <Grid.Row stretched>
             <UserInfo />
             <Grid.Column >
-              <Segment textAlign='center'>
+              <Segment >
               <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item" >
-                  <a class={this.state.relationship == 'followers'? "nav-link active" : "nav-link"} href="#" onClick={this.clickHandler}>Followers</a>
+                  <a class="nav-link" href="/profile" onClick={this.renderInfo}><Icon name='arrow left' color='blue' /></a>
+                </li>
+                <li class="nav-item" >
+                  <a class={this.state.relationship == 'followers'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.clickHandler}>Followers</a>
                 </li>
                 <li class="nav-item">
-                  <a class={this.state.relationship == 'following'? "nav-link active" : "nav-link"} href="#" onClick={this.clickHandler} >Following</a>
+                  <a class={this.state.relationship == 'following'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.clickHandler} >Following</a>
                 </li>
                 {/* <li class="nav-item">
                   <a class="nav-link" href="#" ><Icon color='blue' name='travel' />Suggestions</a>
@@ -45,9 +48,9 @@ class RelationshipList extends Component {
                 <br></br>
                 <Card.Group centered>
                   {this.state.relationship == "followers" ? 
-                    user.followers? user.followers.map((user, idx) => <UserCard user={user} key={idx} id={user.id} /> ) : null 
+                    user.followers? user.followers.map((user, idx) => <RelationshipCard user={user} key={idx} id={user.id} type="followers" /> ) : null 
                   :
-                    user.following? user.following.map((user, idx) => <UserCard user={user} key={idx} id={user.id} /> ) : null
+                    user.following? user.following.map((user, idx) => <RelationshipCard user={user} key={idx} id={user.id} type="following" /> ) : null
                   }
                 </Card.Group>
               </div>

@@ -6,15 +6,20 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
   padding: 50px;
   margin: 100px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .card::after{
   opacity: 0.2;
 }
 
-.center{
+.center {
   text-align: center;
+}
+
+.follow-button {
+  display: inline-block;
+  margin: 0
 }
 
 .location-cards {
@@ -36,6 +41,7 @@
   height: 65vh;
   /* max-height: 65vh; */
   /* min-height: 65vh; */
+  text-align: center;
   overflow-y: scroll;
 }
 
@@ -48,6 +54,10 @@
   background-color: rgba(0,0,0,0.2); 
   color:white;
   font-size: 200%;
+}
+
+.relationship-cards {
+  text-align: left;
 }
 
 h1 {
