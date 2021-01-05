@@ -1,10 +1,19 @@
 import React, { Component } from 'react'; 
 import {Icon, Segment} from 'semantic-ui-react'
-import Activity from '../Components/Activity'
+import Review from '../Components/Review'
+import Trip from '../Components/Trip'
+import { connect } from 'react-redux'
+import { getReviewsFromApi, getTripsFromApi } from '../Redux/actions'
+
 
 class ActivityList extends Component {
   state = {
-    show: "trips"
+    show: "reviews"
+  } 
+
+  componentDidMount = () => {
+    this.props.fetchReviews() 
+    this.props.fetchTrips()
   }
 
   renderInfo = (e) => {
@@ -15,6 +24,10 @@ class ActivityList extends Component {
     }
   }
   render() {
+    const { trips } = this.props
+    console.log(trips)
+    const { reviews } = this.props
+    console.log(reviews)
     return (
       <div>
         <div class="activity">
@@ -22,18 +35,22 @@ class ActivityList extends Component {
         <br></br>
           <ul class="nav nav-tabs nav-fill">
             <li class="nav-item" >
-              <a class={this.state.show == 'reviews'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><Icon name='clipboard list' color='blue' />Reviews</a>
+              <a class={this.state.show == 'reviews'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><h1><Icon name='clipboard list' color='blue' />Reviews</h1></a>
             </li>
             <li class="nav-item">
-              <a class={this.state.show == 'trips'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><Icon color='blue' name='travel' />Trips</a>
+              <a class={this.state.show == 'trips'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><h1><Icon color='blue' name='travel' />Trips</h1></a>
             </li>
           </ul>
           <br></br>
-          {this.state.show ==  "trips"? 
-          <h1>Trips</h1>
+          {this.state.show ==  "trips"?
+          <>
+            {this.props.trips.map(trip => <Trip trip={trip} />)}  
+          </>
           :null} 
           {this.state.show ==  "reviews"? 
-          <h1>Reviews</h1>
+          <>
+          {reviews.map(review => <Review review={review} />)}
+        </>
           :null} 
         </div>
       </div>
@@ -41,4 +58,12 @@ class ActivityList extends Component {
   }
 }
 
-export default ActivityList;
+function mdp(dispatch){
+  return {fetchReviews: () => dispatch(getReviewsFromApi()), fetchTrips: () => dispatch(getTripsFromApi())}
+}
+
+function msp(state){ 
+  return {reviews: state.reviews, trips: state.trips}
+}
+
+export default connect(msp, mdp)(ActivityList);

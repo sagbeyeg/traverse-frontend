@@ -5,8 +5,9 @@ const defaultState = {
   loggedIn: true,
   user: [],
   locations: [],
-  currentLocation: []
-  
+  currentLocation: [],
+  reviews: [],
+  trips: []
 }
 
 function currentUserReducer(state = defaultState.currentUser, action) {
@@ -28,6 +29,26 @@ function userReducer(state = defaultState.user, action) {
       default:
         return state
     }
+}
+
+function reviewsReducer(state = defaultState.reviews, action) {
+  switch (action.type) {
+    case "FETCH_REVIEWS":
+      console.log("inside of reviews reducer", action)
+      return action.payload
+    default:
+      return state
+  }
+}
+
+function tripsReducer(state = defaultState.trips, action) {
+  switch (action.type) {
+    case "FETCH_TRIPS":
+      console.log("inside of trips reducer", action)
+      return action.payload
+    default:
+      return state
+  }
 }
 
 function locationsReducer(state = defaultState.locations, action) {
@@ -79,7 +100,9 @@ const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   user: userReducer,
   locations: locationsReducer,
-  currentLocation: currentLocationReducer
+  currentLocation: currentLocationReducer,
+  reviews: reviewsReducer,
+  trips: tripsReducer
 })
 
 export default rootReducer

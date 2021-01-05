@@ -1,4 +1,4 @@
-import { LOGIN, LOGGED_IN, VIEW_USER, FETCH_USER, FETCH_LOCATIONS, VIEW_LOCATION, ADD_REVIEW, DELETE_REVIEW, ADD_TRIP, UPDATE_REVIEW} from './actionTypes'
+import { LOGIN, LOGGED_IN, VIEW_USER, FETCH_USER, FETCH_REVIEWS, FETCH_TRIPS, FETCH_LOCATIONS, VIEW_LOCATION, ADD_REVIEW, DELETE_REVIEW, ADD_TRIP, UPDATE_REVIEW} from './actionTypes'
 
 export const login = (username) => {
   console.log("Inside of action creator")
@@ -32,6 +32,26 @@ export const getUserFromApi = (user) => {
       .then(resp => resp.json())
       //send data to the reducer
       .then(data => {dispatch({type: FETCH_USER, payload: data})})
+  }
+}
+
+export const getReviewsFromApi = () => {
+  console.log("Inside of fetch reviews action creator")
+  return function(dispatch){
+    fetch(`http://localhost:3002/api/v1/reviews`)
+      .then(resp => resp.json())
+      //send data to the reducer
+      .then(data => {dispatch({type: FETCH_REVIEWS, payload: data}, () => console.log(data))})
+  }
+}
+
+export const getTripsFromApi = () => {
+  console.log("Inside of fetch trips action creator")
+  return function(dispatch){
+    fetch(`http://localhost:3002/api/v1/trips`)
+      .then(resp => resp.json())
+      //send data to the reducer
+      .then(data => {dispatch({type: FETCH_TRIPS, payload: data})})
   }
 }
 
