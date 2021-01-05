@@ -73,7 +73,7 @@ class Profile extends Component {
               {this.state.show == 'trips'? 
               <div className="profile-cards">
                 <Header icon>
-                  <Icon color='blue' name='travel' />
+                  <Icon name='travel' color='blue' />
                 </Header>
                 <Card.Group centered>
                   {user.trips? user.trips.map((trip, idx) => <Trip trip={trip} key={idx}/> ) : null }

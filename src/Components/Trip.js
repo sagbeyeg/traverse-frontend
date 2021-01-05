@@ -6,6 +6,7 @@ class Trip extends Component {
   clickHandler = (e) => {
     console.log("clicked")
     localStorage.setItem('locationId', this.props.trip.location.id);
+    localStorage.setItem('locationName', this.props.trip.location.name);
   }
   render() {
     const { trip } = this.props

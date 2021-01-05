@@ -52,6 +52,7 @@ class Review extends Component {
 
   clickHandler = () => {
     localStorage.setItem('locationId', this.props.review.location.id);
+    localStorage.setItem('locationName', this.props.review.location.name);
   }
 
   userClickHandler = (e) => {

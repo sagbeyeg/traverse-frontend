@@ -4,10 +4,12 @@
 
 .activity {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 50px;
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
   margin-left: 300px;
   margin-right: 300px;
-  margin-top: 25px;
+  margin-top: 0px;
   text-align: center;
   /* background-color: aliceblue; */
   background-color: rgba(0,0,0,0.2); 

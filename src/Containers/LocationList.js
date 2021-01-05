@@ -18,6 +18,7 @@ class LocationList extends Component {
   renderLocation(id, name){
     console.log(id)
     localStorage.setItem('locationId', id);
+    localStorage.setItem('locationName', name);
   }
 
   onChangeType = ({ target: { value } }) => {
