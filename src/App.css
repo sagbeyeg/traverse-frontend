@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.activity {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 50px;
+  margin: 50px;
+  text-align: center;
+  /* background-color: aliceblue; */
+  background-color: rgba(0,0,0,0.2); 
+  /* color:white; */
+  font-size: 200%;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
   padding: 50px;

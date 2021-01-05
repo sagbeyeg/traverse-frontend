@@ -24,7 +24,6 @@ class RelationshipCard extends Component {
           <Card.Meta id={user.id} onClick={this.renderUser} href={user.id == 1? "profile" : "user"} style={{cursor: 'pointer'}}>
             @{user.username}
           </Card.Meta>
-          {/* {this.props.type == "following"? <Button primary  onMouseEnter={(e) => e.target.textContent = "Unfollow"} onMouseLeave={(e) => e.target.textContent = "Following"}>Following</Button> : <Button primary  onMouseEnter={(e) => e.target.textContent = "Unfollow"} onMouseLeave={(e) => e.target.textContent = "Following"}>Following</Button>}  */}
         </Card.Content>
         <Card.Content extra>
           {user.bio.slice(0, 100)}...

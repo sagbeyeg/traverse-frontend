@@ -55,9 +55,7 @@ class Review extends Component {
   }
 
   userClickHandler = (e) => {
-    // e.preventDefault() 
     localStorage.setItem("userId", this.props.review.user.id)
-    // console.log(localStorage("userId"))
   }
 
   render() {
@@ -95,7 +93,6 @@ class Review extends Component {
         <Card >
           <Card.Content>
             <Card.Header><h2>{review.title}</h2></Card.Header>
-            {/* <Card.Meta>Ministry of Magic</Card.Meta> */}
             {star.repeat(review.rating)}{empty_star.repeat(5 - review.rating)}
             <Card.Meta>
               <a href="user" onClick={this.userClickHandler}style={{cursor: 'pointer'}}>{review.user.name}</a> for <a href="location" onClick={this.clickHandler}style={{cursor: 'pointer'}}><strong>{review.location.name}</strong></a> 

@@ -15,9 +15,7 @@ class Trip extends Component {
         <Card >
           <Card.Content>
           <Card.Header onClick={this.clickHandler} href="location" style={{cursor: 'pointer'}}>
-            {/* <div id={trip.location.id} name={trip.location.name} onClick={this.clickHandler} href="location" style={{cursor: 'pointer'}}> */}
               <em>{trip.location.name}</em>
-            {/* </div> */}
           </Card.Header>
           <Card.Meta>{trip.start_date.replace(/-/g, ".")} - {trip.end_date.replace(/-/g, ".")}</Card.Meta>
           <Card.Description>
