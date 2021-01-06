@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'semantic-ui-react' 
+import { Card, Button, Icon } from 'semantic-ui-react' 
 import {connect} from 'react-redux'
 import { deleteReview, updateReview } from '../Redux/actions'
 class Review extends Component {
@@ -93,6 +93,7 @@ class Review extends Component {
       :
         <Card >
           <Card.Content>
+            <Icon name=""/>
             <Card.Header><h2>{review.title}</h2></Card.Header>
             {star.repeat(review.rating)}{empty_star.repeat(5 - review.rating)}
             <Card.Meta>
