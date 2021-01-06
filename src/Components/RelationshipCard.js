@@ -22,7 +22,7 @@ class RelationshipCard extends Component {
             {user.name} 
           </Card.Header>
           <Card.Meta id={user.id} onClick={this.renderUser} href={user.id == 1? "profile" : "user"} style={{cursor: 'pointer'}}>
-            @{user.username}
+            @{user.username}{user.id == 3? <Button size="mini" basic color='blue' ><Icon name="handshake outline"/><em> Follows you </em></Button> : null}
           </Card.Meta>
         </Card.Content>
         <Card.Content extra>

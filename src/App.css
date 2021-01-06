@@ -37,9 +37,14 @@
   margin: 0
 }
 
+.home-scroll{
+  height: 81.5vh;
+  overflow: scroll;
+}
+
 .location-cards {
-    height: 77vh;
-    overflow: scroll;
+  height: 77vh;
+  overflow: scroll;
 }
 
 .profile-cards {

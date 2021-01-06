@@ -34,7 +34,7 @@ class CreateTrip extends Component {
       note: this.state.note
     }
 
-    alert(`Your trip to ${this.state.location} has been successfully booked!`)
+    alert(`Your all inclusive trip 🛫 🚘 🏨 to ${this.state.location} has been successfully booked! Thank you for trusting Traverse!😃`)
 
     this.props.addTrip(trip)
   }

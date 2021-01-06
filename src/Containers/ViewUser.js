@@ -42,9 +42,9 @@ class ViewUser extends Component {
                 <li class="nav-item" >
                   <a class={this.state.show == 'reviews'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><Icon name='clipboard list' color='blue' />Reviews</a>
                 </li>
-                <li class="nav-item">
+                {/* <li class="nav-item">
                   <a class={this.state.show == 'favLocations'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><Icon color='blue' name='home' />Favorite Locations</a>
-                </li>
+                </li> */}
                 <li class="nav-item">
                   <a class={this.state.show == 'trips'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><Icon color='blue' name='travel' />Trips</a>
                 </li>

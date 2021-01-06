@@ -1,7 +1,5 @@
 import React, { Component } from 'react'; 
 import {Icon, Segment, Card} from 'semantic-ui-react'
-import Review from '../Components/Review'
-import Trip from '../Components/Trip'
 import { connect } from 'react-redux'
 import { getReviewsFromApi, getTripsFromApi } from '../Redux/actions'
 import Activity from '../Components/Activity';
@@ -43,13 +41,15 @@ class ActivityList extends Component {
             </li>
           </ul>
           <br></br>
-          <Card.Group centered itemsPerRow={1}>
-            {this.state.show ==  "trips"? 
-              trips.map(trip => <Activity trip={trip} user={trip.user} state={this.state.show} />)
-            :
-              reviews.map(review => <Activity review={review} user={review.user} state={this.state.show} />)
-            } 
-        </Card.Group>
+          <div class="home-scroll">
+            <Card.Group centered itemsPerRow={1} >
+              {this.state.show ==  "trips"? 
+                trips.map(trip => <Activity trip={trip} user={trip.user} state={this.state.show} />)
+                :
+                reviews.map(review => <Activity review={review} user={review.user} state={this.state.show} />)
+              } 
+            </Card.Group>
+          </div>
         </div>
       </div>
     );
