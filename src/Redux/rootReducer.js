@@ -70,7 +70,7 @@ function currentLocationReducer(state = defaultState.currentLocation, {type, pay
       :
         console.log("inside of current location reducer", payload)
         console.log("State", state)
-        let newObj = [...state.reviews, {...payload.review}]
+        let newObj = [{...payload.review}, ...state.reviews]
         return {...state, reviews: newObj }  
       case "UPDATE_REVIEW":
         console.log("inside of current location reducer", payload)
@@ -85,7 +85,7 @@ function currentLocationReducer(state = defaultState.currentLocation, {type, pay
         return {...state, reviews: filteredReviews }
         case "ADD_TRIP":
           console.log("inside of current location reducer", payload)
-          let newTrip = [...state.trips, {...payload.trip}]
+          let newTrip = [{...payload.trip}, ...state.trips]
           return {...state, trips: newTrip }  
       default:
           return state
