@@ -45,9 +45,9 @@ class ActivityList extends Component {
           <br></br>
           <Card.Group centered itemsPerRow={1}>
             {this.state.show ==  "trips"? 
-              trips.map(trip => <Trip trip={trip} />)
+              trips.map(trip => <Activity trip={trip} user={trip.user} state={this.state.show} />)
             :
-              reviews.map(review => <Activity review={review} user={review.user}/>)
+              reviews.map(review => <Activity review={review} user={review.user} state={this.state.show} />)
             } 
         </Card.Group>
         </div>

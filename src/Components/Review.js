@@ -87,7 +87,7 @@ class Review extends Component {
               <textarea className="form-control" name="content" rows="3" value={this.state.content} onChange={(e) => this.changeHandler(e)}></textarea>
             </div>
             <Button onClick={this.toggleEdit}>Cancel</Button>
-            <Button>Submit Review</Button>
+            <Button color="green">Submit Update</Button>
           </form>
         </Card>
       :

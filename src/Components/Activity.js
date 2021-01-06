@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-import { Card, Button, Image } from 'semantic-ui-react' 
+import { Planet } from 'react-planet';
+import { Card, Button, Image, Icon } from 'semantic-ui-react'  
 
 class Activity extends Component {
   renderUser = (e) => {
@@ -20,6 +20,7 @@ class Activity extends Component {
     const {review} = this.props
     const {trip} = this.props
     const {user} = this.props
+    // const {state} = this.props
     return ( 
       <Card class="relationship-cards">
         <Card.Content >
@@ -35,35 +36,78 @@ class Activity extends Component {
             <em>@{user.username}</em>
           </Card.Meta>
         </Card.Content>
-        <Card.Content extra>
+        {this.props.state == "reviews"?
+          <Card.Content extra>
+          {review.user_id == 1?
+              <Planet
+                  centerContent={<Icon color="blue" name="th list" />}
+                  hideOrbit
+                  autoClose
+                  orbitRadius={40}
+                  bounceOnClose
+                  align="right"
+                  rotation={105}
+                  // the bounce direction is minimal visible
+                  // but on close it seems the button wobbling a bit to the bottom
+                  bounceDirection="BOTTOM"
+              >
+                  <div />
+                  <div />
+                  <div />
+                  <Icon name="edit" color="green" size="large" id={review.id} onClick={this.toggleEdit} style={{cursor: 'pointer'}}/>
+                  <Icon name="trash" color='red' size="large" id={review.id} onClick={this.deleteHandler} style={{cursor: 'pointer'}}/>
+                  <div />
+                  <div />
+              </Planet>
+              :
+              null
+            }
+            <Card.Header>
+              <h3>
+                {review.title}
+              </h3>
+            </Card.Header>
+            {star.repeat(review.rating)}{empty_star.repeat(5 - review.rating)}
+            <Card.Meta>
+              <a href="location" onClick={this.clickHandler} style={{cursor: 'pointer'}}>
+                <strong>
+                  {review.location.name}
+                </strong>
+              </a> 
+            </Card.Meta>
+            <Card.Description>
+              <h5>
+                {review.content}
+              </h5>
+            </Card.Description>
+            {/* {review.user_id == 1?
+            <>
+            <Button id={review.id} onClick={this.toggleEdit}>Edit</Button>
+            <Button color='red' id={review.id} onClick={this.deleteHandler}>Delete</Button>
+            </>
+            :
+            null
+          }
+            */}
+        </Card.Content>
+        :
+        null}
+        {this.props.state == "trips"?
+        <Card.Content> 
           <Card.Header>
-            <h3>
-              {review.title}
-            </h3>
+            <h4>{trip.start_date.replace(/-/g, ".")} - {trip.end_date.replace(/-/g, ".")}</h4>
           </Card.Header>
-          {star.repeat(review.rating)}{empty_star.repeat(5 - review.rating)}
           <Card.Meta>
-            <a href="location" onClick={this.clickHandler} style={{cursor: 'pointer'}}>
-              <strong>
-                {review.location.name}
-              </strong>
-            </a> 
+              <h5><em>{trip.user.state}, {trip.user.country} <Icon name="right arrow" /> <a onClick={this.clickHandler} href="location" style={{cursor: 'pointer'}}>{trip.location.name}</a></em></h5>
           </Card.Meta>
           <Card.Description>
-            <h5>
-              {review.content}
-            </h5>
+            <p>
+              {trip.note}
+            </p>
           </Card.Description>
-          {review.user_id == 1?
-          <>
-          <Button id={review.id} onClick={this.toggleEdit}>Edit</Button>
-          <Button color='red' id={review.id} onClick={this.deleteHandler}>Delete</Button>
-          </>
-          :
-          null
-        }
-          
         </Card.Content>
+        : null
+        }
         </Card >
     );
   }
