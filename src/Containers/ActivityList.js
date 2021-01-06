@@ -27,14 +27,13 @@ class ActivityList extends Component {
 
   render() {
     const { trips } = this.props
-    console.log(trips)
+    // console.log(trips)
     const { reviews } = this.props
-    console.log(reviews)
+    // console.log(reviews)
     return (
       <div>
         <div class="activity">
         <h1>Home</h1>
-        {/* <br></br> */}
           <ul class="nav nav-tabs nav-fill" style={{backgroundColor: "rgba(0,0,0,0.2)"}}>
             <li class="nav-item" >
               <a class={this.state.show == 'reviews'? "nav-link active" : "nav-link"} href="javascript:void(0)" onClick={this.renderInfo}><h2><Icon name='clipboard list' color='white' />Reviews</h2></a>
@@ -44,21 +43,13 @@ class ActivityList extends Component {
             </li>
           </ul>
           <br></br>
-          {this.state.show ==  "trips"? 
-          <>
           <Card.Group centered itemsPerRow={1}>
-            {this.props.trips.map(trip => <Trip trip={trip} />)}  
-          </Card.Group>
-          </>
-          :null} 
-          {this.state.show ==  "reviews"? 
-          <>
-          <Card.Group centered itemsPerRow={1}>
-          {reviews.map(review => <Activity review={review} user={review.user}/>)}
-
-          </Card.Group>
-          </>
-          :null} 
+            {this.state.show ==  "trips"? 
+              trips.map(trip => <Trip trip={trip} />)
+            :
+              reviews.map(review => <Activity review={review} user={review.user}/>)
+            } 
+        </Card.Group>
         </div>
       </div>
     );

@@ -96,7 +96,7 @@ class Review extends Component {
             <Card.Header><h2>{review.title}</h2></Card.Header>
             {star.repeat(review.rating)}{empty_star.repeat(5 - review.rating)}
             <Card.Meta>
-              <a href="user" onClick={this.userClickHandler}style={{cursor: 'pointer'}}>{review.user.name}</a> for <a href="location" onClick={this.clickHandler}style={{cursor: 'pointer'}}><strong>{review.location.name}</strong></a> 
+              <a href="user" onClick={this.userClickHandler}style={{cursor: 'pointer'}}>{review.user_id == 1?"You": review.user.name}</a>for <a href="location" onClick={this.clickHandler}style={{cursor: 'pointer'}}><strong>{review.location.name}</strong></a> 
 
             </Card.Meta>
             <Card.Description>

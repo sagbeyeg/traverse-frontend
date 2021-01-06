@@ -76,7 +76,7 @@ class Profile extends Component {
                   <Icon name='travel' color='blue' />
                 </Header>
                 <Card.Group centered>
-                  {user.trips? user.trips.map((trip, idx) => <Trip trip={trip} key={idx}/> ) : null }
+                  {user.trips? user.trips.map((trip, idx) => <Trip user={this.props.user} trip={trip} key={idx}/> ) : null }
                 </Card.Group>
               </div>
               : null }
