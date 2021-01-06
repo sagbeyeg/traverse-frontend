@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react' 
 import {connect} from 'react-redux'
 import { deleteReview, updateReview } from '../Redux/actions'
+import { Planet } from 'react-planet';
 class Review extends Component {
   state = {
     review: this.props.review,
@@ -93,17 +94,38 @@ class Review extends Component {
       :
         <Card >
           <Card.Content>
-            <Icon name=""/>
+          {review.user_id == 1?
+            <Planet
+                centerContent={<Icon color="blue" name="th list" />}
+                hideOrbit
+                autoClose
+                orbitRadius={60}
+                bounceOnClose
+                rotation={105}
+                // the bounce direction is minimal visible
+                // but on close it seems the button wobbling a bit to the bottom
+                bounceDirection="BOTTOM"
+            >
+                <div />
+                <div />
+                <Icon name="edit" color="green" id={review.id} onClick={this.toggleEdit} style={{cursor: 'pointer'}}/>
+                <Icon name="trash" color='red' id={review.id} onClick={this.deleteHandler} style={{cursor: 'pointer'}}/>
+                <div />
+                <div />
+                <div />
+            </Planet>
+            :
+            null
+          }
             <Card.Header><h2>{review.title}</h2></Card.Header>
             {star.repeat(review.rating)}{empty_star.repeat(5 - review.rating)}
             <Card.Meta>
-              <a href="user" onClick={this.userClickHandler}style={{cursor: 'pointer'}}>{review.user_id == 1?"You": review.user.name}</a>for <a href="location" onClick={this.clickHandler}style={{cursor: 'pointer'}}><strong>{review.location.name}</strong></a> 
-
+              <a href="user" onClick={this.userClickHandler} style={{cursor: 'pointer'}}>{review.user_id == 1?"You": review.user.name}</a>for <a href="location" onClick={this.clickHandler}style={{cursor: 'pointer'}}><strong>{review.location.name}</strong></a> 
             </Card.Meta>
             <Card.Description>
               <h5>{review.content}</h5>
             </Card.Description>
-            {review.user_id == 1?
+              {review.user_id == 1?
             <>
             <Button id={review.id} onClick={this.toggleEdit}>Edit</Button>
             <Button color='red' id={review.id} onClick={this.deleteHandler}>Delete</Button>
