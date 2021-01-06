@@ -47,7 +47,6 @@ class Review extends Component {
   deleteHandler = (e) => {
     console.log(e.target.id)
     let id = parseInt(e.target.id)
-    this.props.delete()
     this.props.deleteReview(id)
   }
 
@@ -99,8 +98,9 @@ class Review extends Component {
                 centerContent={<Icon color="blue" name="th list" />}
                 hideOrbit
                 autoClose
-                orbitRadius={60}
+                orbitRadius={40}
                 bounceOnClose
+                align="right"
                 rotation={105}
                 // the bounce direction is minimal visible
                 // but on close it seems the button wobbling a bit to the bottom
@@ -108,11 +108,11 @@ class Review extends Component {
             >
                 <div />
                 <div />
-                <Icon name="edit" color="green" id={review.id} onClick={this.toggleEdit} style={{cursor: 'pointer'}}/>
-                <Icon name="trash" color='red' id={review.id} onClick={this.deleteHandler} style={{cursor: 'pointer'}}/>
                 <div />
                 <div />
                 <div />
+                <Icon name="trash" color='red' size="large" id={review.id} onClick={this.deleteHandler} style={{cursor: 'pointer'}}/>
+                <Icon name="edit" color="green" size="large" id={review.id} onClick={this.toggleEdit} style={{cursor: 'pointer'}}/>
             </Planet>
             :
             null
@@ -125,14 +125,14 @@ class Review extends Component {
             <Card.Description>
               <h5>{review.content}</h5>
             </Card.Description>
-              {review.user_id == 1?
+              {/* {review.user_id == 1?
             <>
             <Button id={review.id} onClick={this.toggleEdit}>Edit</Button>
             <Button color='red' id={review.id} onClick={this.deleteHandler}>Delete</Button>
             </>
             :
             null
-          }
+          } */}
           </Card.Content>
         </Card>
       }
