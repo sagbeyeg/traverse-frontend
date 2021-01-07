@@ -53,15 +53,6 @@ class LocationList extends Component {
                         {loc.description}
                       </Card.Meta>
                     </Card.Content>
-                    {/* <Card.Content extra>
-                      <Button id={loc.id}>
-                        <Icon name='star outline' />
-                        Favorite
-                      </Button>
-                      <Button  color="blue" id={loc.id} name={loc.name} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id, e.target.name)} >
-                        View
-                      </Button>
-                    </Card.Content> */}
                   </Card>
                 )}
               </Card.Group>
@@ -71,20 +62,11 @@ class LocationList extends Component {
                   <Card key={idx} id={loc.id} >
                     <Image src='https://media.giphy.com/media/37QOWrwGOljUCbdDxd/giphy.gif' />
                     <Card.Content>
-                      <Card.Header>{loc.name}</Card.Header>
+                      <Card.Header id={loc.id} name={loc.name} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id, e.target.name)}>{loc.name}</Card.Header>
                       { star.repeat(parseInt(loc.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / loc.reviews.length)) }
                       <Card.Meta>
                         {loc.description}
                       </Card.Meta>
-                    </Card.Content>
-                    <Card.Content extra>
-                      <Button id={loc.id}>
-                        <Icon name='star outline' />
-                        Favorite
-                      </Button>
-                      <Button id={loc.id} name={loc.name} as={NavLink} to='/location' onClick={e => this.renderLocation(e.target.id, e.target.name)} >
-                        View
-                      </Button>
                     </Card.Content>
                   </Card>
                 )}

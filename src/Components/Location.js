@@ -57,9 +57,16 @@ import {NavLink} from 'react-router-dom'
               <Grid.Row stretched>
                 <Grid.Column width={6}>
                   <Segment> 
-                    <Image src='https://media1.popsugar-assets.com/files/thumbor/Gbp5ZjfDuCDPFzlmvIMlSppdH74/887x0:3623x2736/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/05/14/239/n/40126596/2da006e05cdb994e042fe8.45308274_/i/Best-Travel-Destinations-Southeast-Asia.jpg' fluid wrapped />
-                    <Divider />
-                    <h3>{currentLocation.description}</h3>
+                    <div>
+                      {currentLocation.id == 3?
+                      <Image fluid wrapped src="https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2020/05/abuja-1589282102432.jpg?fit=750%2C496&ssl=1"/>
+                      :
+
+                      <Image src='https://media1.popsugar-assets.com/files/thumbor/Gbp5ZjfDuCDPFzlmvIMlSppdH74/887x0:3623x2736/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/05/14/239/n/40126596/2da006e05cdb994e042fe8.45308274_/i/Best-Travel-Destinations-Southeast-Asia.jpg' fluid wrapped />
+                    }
+                      <Divider />
+                      <h3>{currentLocation.description}</h3>
+                    </div>
                   </Segment>
                 </Grid.Column>
                 <Grid.Column width={7} >
