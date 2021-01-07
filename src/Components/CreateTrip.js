@@ -9,9 +9,14 @@ class CreateTrip extends Component {
     location: localStorage.getItem("locationName"), 
     start_date: '',
     end_date: '',
-    note: ''
+    note: '',
+    confirmation: ""
   }
 
+  componentDidMount = () => {
+    this.setState({confirmation: "false"},() => console.log(this.state.confirmation))
+  }
+  
   changeHandler = (e) => {
     this.setState({
       ...this.state, [e.target.name]: e.target.value
@@ -34,14 +39,29 @@ class CreateTrip extends Component {
       note: this.state.note
     }
 
-    alert(`Your all inclusive trip 🛫 🚘 🏨 to ${this.state.location} has been successfully booked! Thank you for trusting Traverse!😃`)
+    this.setState({confirmation: "false"},() => console.log(this.state.confirmation))
+    // alert(`Your all inclusive trip 🛫 🚘 🏨 to ${this.state.location} has been successfully booked! Thank you for trusting Traverse!😃`)
 
     this.props.addTrip(trip)
+  }
+
+  setTrue = () => {
+    this.setState({confirmation: "true"},() => console.log(this.state.confirmation))
   }
 
   render() {
     return (
       <div class="card">
+        {this.state.confirmation == "true" ?
+        <>
+        <h2>Booking Confirmation</h2>
+        <br></br>
+        <h3><div>Thank you for booking your all inclusive trip with Traverse!</div> <div>Your confirmation will be sent to you via email shortly!</div></h3>
+        <br></br>
+        <Button onClick={this.submitHandler} as={NavLink} to='/profile' >Back to Profile</Button>
+        </>
+        :
+        <>
         <h2>Book a Trip</h2>
         <form>
           <div class="form-group">
@@ -60,8 +80,10 @@ class CreateTrip extends Component {
             <label for="note">Note</label>
             <textarea name="note" class="form-control" rows="3" onChange={this.changeHandler}></textarea>
           </div>
-          <Button onClick={this.submitHandler} as={NavLink} to='/profile' >Book</Button>
+          <Button onClick={this.setTrue}>Book</Button>
         </form>
+        </>
+      }
       </div>
     );
   }
