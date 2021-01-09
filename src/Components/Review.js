@@ -21,7 +21,8 @@ class Review extends Component {
   //   fetch(`http://localhost:3002/api/v1/reviews/${e.target.id}`, configObj)
   // }
   toggleEdit = () => {
-    this.setState(prevState => ({edit: !prevState.edit }), () => console.log(this.state.edit))
+    // this.setState(prevState => ({edit: !prevState.edit }), () => console.log(this.state.edit))
+    alert("Please navigate to the Destination to edit your review.")
   }
 
   changeHandler = (e) => {
@@ -45,9 +46,10 @@ class Review extends Component {
   }
 
   deleteHandler = (e) => {
-    console.log(e.target.id)
-    let id = parseInt(e.target.id)
-    this.props.deleteReview(id)
+    // console.log(e.target.id)
+    // let id = parseInt(e.target.id)
+    // this.props.deleteReview(id)
+    alert("Please navigate to the Destination to delete your review.")
   }
 
   clickHandler = () => {
