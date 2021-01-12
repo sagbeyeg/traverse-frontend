@@ -5,6 +5,7 @@ import Review from './Review'
 import CreateEditReview from './CreateEditReview'
 import { setCurrentLocation, deleteReview } from '../Redux/actions'
 import {NavLink} from 'react-router-dom'
+import ReviewFilter from './ReviewFilter';
  class Location extends Component { 
   state = {
     form: false
@@ -85,6 +86,7 @@ import {NavLink} from 'react-router-dom'
                         <h4 class="center" >
                           {currentLocation.reviews? star.repeat(parseInt(currentLocation.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / currentLocation.reviews.length)) : null} {currentLocation.reviews? emptyStar.repeat(5 - parseInt(currentLocation.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / currentLocation.reviews.length)) : null} || {currentLocation.reviews? currentLocation.reviews.length : null} reviews
                         </h4>
+                          <ReviewFilter />
                         <Divider /> 
                         {/* <br></br> */}
                         <Card.Group centered className="location-no-form">
