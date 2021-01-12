@@ -8,7 +8,8 @@ import {NavLink} from 'react-router-dom'
 import ReviewFilter from './ReviewFilter';
  class Location extends Component { 
   state = {
-    form: false
+    form: false,
+    filter: 'All'
   }
 
   componentDidMount(){
@@ -28,9 +29,17 @@ import ReviewFilter from './ReviewFilter';
   renderReviews = () => {
     if (this.props.currentLocation.reviews) { 
       console.log(this.props.currentLocation.reviews)
-      return this.props.currentLocation.reviews.map((review, idx) => <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={this.props.currentLocation.id} delete={this.deleteHandler}/>)
+      if (this.state.filter === "All"){
+        return this.props.currentLocation.reviews.map((review, idx) => <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={this.props.currentLocation.id} delete={this.deleteHandler}/>)
+      } else {
+        return this.props.currentLocation.reviews.map((review, idx) => review.user.id == 1 && <Review reviewUpdate={this.reviewUpdate} review={review} key={idx} id={this.props.currentLocation.id} delete={this.deleteHandler}/>)
+      }
     }  
   }
+
+  onChangeType = ({ target: { value } }) => {
+    this.setState({ filter: value}, ()=>console.log(this.state.filter));
+  };
 
   render() {
     const { currentLocation } = this.props
@@ -86,7 +95,7 @@ import ReviewFilter from './ReviewFilter';
                         <h4 class="center" >
                           {currentLocation.reviews? star.repeat(parseInt(currentLocation.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / currentLocation.reviews.length)) : null} {currentLocation.reviews? emptyStar.repeat(5 - parseInt(currentLocation.reviews.map(rev => rev.rating).reduce((a,b) => a + b, 0) / currentLocation.reviews.length)) : null} || {currentLocation.reviews? currentLocation.reviews.length : null} reviews
                         </h4>
-                          <ReviewFilter />
+                          <ReviewFilter onChangeType={this.onChangeType}/>
                         <Divider /> 
                         {/* <br></br> */}
                         <Card.Group centered className="location-no-form">
