@@ -73,7 +73,7 @@ import ReviewFilter from './ReviewFilter';
                 <Grid.Column width={7} >
                   {this.state.form?
                     <>
-                      <Button size='large' onClick={this.toggleForm}>Close Form</Button> 
+                      <Button size='large' onClick={this.toggleForm}>Cancel</Button> 
                       <Segment className="location">
                         <br></br>
                         <CreateEditReview clickHandler={this.clickHandler} id={currentLocation.id}/>
