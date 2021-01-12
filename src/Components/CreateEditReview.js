@@ -50,7 +50,7 @@ class CreateEditReview extends Component {
         </div>
         <div className="form-group">
           <label for="content">Content</label>
-          <textarea required className="form-control" name="content" rows="3" value={this.state.content} onChange={(e) => this.changeHandler(e)}></textarea>
+          <textarea required className="form-control" name="content" rows="3" value={this.state.content} onChange={(e) => this.changeHandler(e)} placeholder="When did you go? How was it?"></textarea>
         </div>
         <Button>Submit Review</Button>
       </form>
