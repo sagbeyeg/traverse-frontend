@@ -58,12 +58,12 @@
 }
 
 .location {
-  height: 67vh;
+  height: 69.5vh;
   overflow-y: scroll;
 }
 
 .location-no-form {
-  height: 65vh;
+  height: 60vh;
   /* max-height: 65vh; */
   /* min-height: 65vh; */
   text-align: center;
