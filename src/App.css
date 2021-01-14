@@ -62,6 +62,10 @@
   overflow-y: scroll;
 }
 
+.location-desc{
+  height: 70vh;
+}
+
 .location-no-form {
   height: 60vh;
   /* max-height: 65vh; */

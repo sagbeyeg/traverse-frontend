@@ -66,7 +66,7 @@ import ReviewFilter from './ReviewFilter';
             <Grid columns={2} divided centered >
               <Grid.Row stretched>
                 <Grid.Column width={6}>
-                  <Segment> 
+                  <Segment className="location-desc"> 
                     <div>
                       {currentLocation.id == 3?
                       <Image fluid wrapped src="https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2020/05/abuja-1589282102432.jpg?fit=750%2C496&ssl=1"/>
