@@ -11,10 +11,18 @@ class Review extends Component {
     rating: this.props.review.rating,
     content: this.props.review.content,
   }
-  
+
+  // clickHandler = (e) => {
+  //   console.log(e.target.id)
+  //   console.log(this.state.review)
+  //   const configObj = {
+  //     method: 'DELETE'
+  //   }
+  //   fetch(`http://localhost:3002/api/v1/reviews/${e.target.id}`, configObj)
+  // }
   toggleEdit = () => {
-    this.setState(prevState => ({edit: !prevState.edit }), () => console.log(this.state.edit))
-    // alert("Please navigate to the Destination to edit your review.")
+    // this.setState(prevState => ({edit: !prevState.edit }), () => console.log(this.state.edit))
+    alert("Please navigate to the Destination to edit your review.")
   }
 
   changeHandler = (e) => {
@@ -38,10 +46,10 @@ class Review extends Component {
   }
 
   deleteHandler = (e) => {
-    console.log(e.target.id)
-    let id = parseInt(e.target.id)
-    this.props.deleteReview(id)
-    // alert("Please navigate to the Destination to delete your review.")
+    // console.log(e.target.id)
+    // let id = parseInt(e.target.id)
+    // this.props.deleteReview(id)
+    alert("Please navigate to the Destination to delete your review.")
   }
 
   clickHandler = () => {

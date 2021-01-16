@@ -58,15 +58,7 @@ import ReviewFilter from './ReviewFilter';
             <Grid columns={2} divided centered >
               <Grid.Row stretched>
                 <Grid.Column width={6}>
-                  <Segment className="location-desc"> 
-                    <h2 class="center">
-                    {currentLocation.name}<br></br>
-                    <Button size='big' id={currentLocation.id}>
-                      <Icon name='star' />
-                      Favorite
-                    </Button>
-                    <Button size='big' as={NavLink} to="/booktrip">Book a Trip Here!</Button>
-                    </h2>
+                  <Segment> 
                     <div>
                       {currentLocation.id == 3?
                       <Image fluid wrapped src="https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2020/05/abuja-1589282102432.jpg?fit=750%2C496&ssl=1"/>
