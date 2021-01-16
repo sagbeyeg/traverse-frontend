@@ -63,11 +63,11 @@
 }
 
 .location-desc{
-  height: 85vh;
+  height: 70vh;
 }
 
 .location-no-form {
-  height: 70vh;
+  height: 60vh;
   /* max-height: 65vh; */
   /* min-height: 65vh; */
   text-align: center;
