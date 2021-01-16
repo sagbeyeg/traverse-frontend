@@ -47,10 +47,10 @@
   overflow: scroll;
 }
 
-.location-description {
+/* .location-description {
   height: 75vh;
   overflow: scroll;
-}
+} */
 
 .profile-cards {
   height: 75vh;
@@ -58,16 +58,16 @@
 }
 
 .location {
-  height: 69.5vh;
+  height: 67vh;
   overflow-y: scroll;
 }
 
 .location-desc{
-  height: 85vh;
+  height: 70vh;
 }
 
 .location-no-form {
-  height: 70vh;
+  height: 65vh;
   /* max-height: 65vh; */
   /* min-height: 65vh; */
   text-align: center;
