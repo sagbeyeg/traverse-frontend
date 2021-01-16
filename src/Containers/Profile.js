@@ -16,6 +16,7 @@ class Profile extends Component {
     //use dispatch to execute fetch call
     localStorage.setItem("userId", 1)
     this.props.fetchUser(localStorage.getItem("userId"))
+    localStorage.setItem('page', 'profile');
   }
 
   renderInfo = (e) => {

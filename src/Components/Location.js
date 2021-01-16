@@ -16,6 +16,7 @@ import ReviewFilter from './ReviewFilter';
     this.setState({form: false}) 
     const id = parseInt(localStorage.getItem('locationId'))
     this.props.setLocation(id)
+    localStorage.setItem('page', 'location');
   }
 
   toggleForm = () => {

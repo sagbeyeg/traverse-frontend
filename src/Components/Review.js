@@ -13,8 +13,8 @@ class Review extends Component {
   }
 
   toggleEdit = () => {
-    this.setState(prevState => ({edit: !prevState.edit }), () => console.log(this.state.edit))
-    // alert("Please navigate to the Destination to edit your review.")
+    localStorage.getItem('page') == 'location' && this.setState(prevState => ({edit: !prevState.edit }), () => console.log(this.state.edit))
+    localStorage.getItem('page') == 'profile' && alert("Please navigate to the Destination to edit your review.")
   }
 
   changeHandler = (e) => {
@@ -40,8 +40,8 @@ class Review extends Component {
   deleteHandler = (e) => {
     console.log(e.target.id)
     let id = parseInt(e.target.id)
-    this.props.deleteReview(id)
-    // alert("Please navigate to the Destination to delete your review.")
+    localStorage.getItem('page') == 'location' && this.props.deleteReview(id)
+    localStorage.getItem('page') == 'profile' && alert("Please navigate to the Destination to delete your review.")
   }
 
   clickHandler = () => {
