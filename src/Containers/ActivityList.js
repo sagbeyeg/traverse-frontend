@@ -46,7 +46,7 @@ class ActivityList extends Component {
           <div class="home-scroll">
             <Card.Group centered itemsPerRow={1} >
               {this.state.show ==  "trips"? 
-                trips.map(trip => trip.user.id != 1 && followers.includes(review.user.id) && <Activity trip={trip} user={trip.user} state={this.state.show} />)
+                trips.map(trip => trip.user.id != 1 && followers.includes(trip.user.id) && <Activity trip={trip} user={trip.user} state={this.state.show} />)
                 :
                 reviews.map(review => review.user.id != 1 && followers.includes(review.user.id) && <Activity review={review} user={review.user} state={this.state.show} />)
               } 
