@@ -17,6 +17,7 @@ class Profile extends Component {
     localStorage.setItem("userId", 1)
     this.props.fetchUser(localStorage.getItem("userId"))
     localStorage.setItem('page', 'profile');
+    localStorage.setItem('following', this.props.user.following.map(user => user.id));
   }
 
   renderInfo = (e) => {
