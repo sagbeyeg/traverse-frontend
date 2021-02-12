@@ -17,9 +17,8 @@ class Profile extends Component {
     localStorage.setItem("userId", 1)
     this.props.fetchUser(localStorage.getItem("userId"))
     localStorage.setItem('page', 'profile');
-    localStorage.setItem('following', this.props.user.following.map(user => user.id));
   }
-
+  
   renderInfo = (e) => {
     if (e.target.innerText == 'Reviews') {
       this.setState ({ show: 'reviews'}, () => console.log("State changed to:", this.state.show))
@@ -29,7 +28,7 @@ class Profile extends Component {
       this.setState ({ show: 'trips'}, () => console.log("State changed to:", this.state.show))
     }
   }
-
+  
   render() {
     const {user} = this.props
     return (

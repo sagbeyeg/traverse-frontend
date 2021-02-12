@@ -31,7 +31,10 @@ export const getUserFromApi = (user) => {
     fetch(`http://localhost:3002/api/v1/users/${user}`)
       .then(resp => resp.json())
       //send data to the reducer
-      .then(data => {dispatch({type: FETCH_USER, payload: data})})
+      .then(data => {
+        dispatch({type: FETCH_USER, payload: data})
+        localStorage.setItem('following', data.following.map(user => user.id));
+      })
   }
 }
 
