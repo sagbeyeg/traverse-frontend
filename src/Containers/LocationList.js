@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import { getLocationsFromApi } from '../Redux/actions'
-import {Card, Image, Button, Icon} from 'semantic-ui-react' 
+import {Card, Image} from 'semantic-ui-react' 
 import {NavLink} from 'react-router-dom'
 import LocationFilter from '../Components/LocationFilter'
 
